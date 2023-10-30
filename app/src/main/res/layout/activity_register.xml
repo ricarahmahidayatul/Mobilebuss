@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register"
+    android:background="@drawable/ic_gradasibgawal"
+    tools:ignore="ExtraText">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="310dp"
+        android:layout_marginBottom="690dp"
+        android:text="Hallo Friend!"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        tools:ignore="TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/usernameRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="340dp"
+        android:ems="13"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="Username"
+        android:gravity="center"
+        android:textColor="@color/abutex" />
+
+    <EditText
+        android:id="@+id/passworRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="300dp"
+        android:ems="13"
+        android:inputType="numberPassword"
+        android:minHeight="48dp"
+        android:text="Password"
+        android:gravity="center"
+        android:textColor="@color/abutex" />
+
+    <EditText
+        android:id="@+id/nomortelefonRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="260dp"
+        android:ems="13"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:text="Nomor Telfon"
+        android:gravity="center"
+        android:textColor="@color/abutex" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="167dp"
+        android:backgroundTint="@color/white"
+        android:text="Register"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="120dp"
+        android:text="Already signed up?"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tulisanlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="80dp"
+        android:text="Log In"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+</RelativeLayout>
