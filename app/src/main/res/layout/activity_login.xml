@@ -29,11 +29,11 @@
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="340dp"
         android:ems="13"
+        android:gravity="center"
         android:inputType="text"
         android:minHeight="48dp"
         android:text="Username"
-        android:gravity="center"
-        android:textColor="@color/abutex" />
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/passworRes"
@@ -44,11 +44,11 @@
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="300dp"
         android:ems="13"
+        android:gravity="center"
         android:inputType="numberPassword"
         android:minHeight="48dp"
         android:text="Password"
-        android:gravity="center"
-        android:textColor="@color/abutex" />
+        android:textColor="@color/white" />
 
 
 
@@ -75,6 +75,7 @@
         android:layout_marginEnd="113dp"
         android:layout_marginBottom="120dp"
         android:text="You don’t have account "
+        android:textColor="#FFFFFF"
         android:textSize="15dp"
         android:textStyle="bold"
         tools:ignore="TextSizeCheck" />
@@ -88,7 +89,9 @@
         android:layout_marginEnd="133dp"
         android:layout_marginBottom="80dp"
         android:text="Register"
-        android:textStyle="bold"
-        android:textSize="30dp"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
