@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/Beranda"
+            android:icon="@drawable/icon_home"
+            android:title="ikon home"/>
+
+        <item
+            android:id="@+id/lonceng"
+            android:icon="@drawable/icon_lonceng"
+            android:title="ikon lonceng" />
+        <item
+            android:id="@+id/akun"
+            android:icon="@drawable/icon_account"
+            android:title="ikon akun" />
+    </menu>
+
