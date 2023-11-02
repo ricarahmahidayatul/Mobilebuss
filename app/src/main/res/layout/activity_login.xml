@@ -21,7 +21,7 @@
         tools:ignore="TextSizeCheck" />
 
     <EditText
-        android:id="@+id/usernameRes"
+        android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -30,13 +30,14 @@
         android:layout_marginBottom="340dp"
         android:ems="13"
         android:gravity="center"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:text="Username"
+        android:hint="Username"
+        android:textColorHint="@color/white"
         android:textColor="@color/white" />
 
     <EditText
-        android:id="@+id/passworRes"
+        android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -45,15 +46,19 @@
         android:layout_marginBottom="300dp"
         android:ems="13"
         android:gravity="center"
-        android:inputType="numberPassword"
         android:minHeight="48dp"
-        android:text="Password"
-        android:textColor="@color/white" />
+        android:hint="Password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword"
+        />
+
+
 
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -81,7 +86,7 @@
         tools:ignore="TextSizeCheck" />
 
     <TextView
-        android:id="@+id/tulisanlogin"
+        android:id="@+id/Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -93,5 +98,7 @@
         android:textColorHint="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold" />
+
+
 
 </RelativeLayout>
