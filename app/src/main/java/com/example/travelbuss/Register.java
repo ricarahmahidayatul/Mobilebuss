@@ -44,6 +44,7 @@ private FirebaseAuth mAuth;
             public void onClick(View view) {
                 Intent Intent=new Intent(Register.this, LoginActivity.class);
                 startActivity(Intent);
+                finish();
             }
         });
         btnRegister.setOnClickListener(new View.OnClickListener() {

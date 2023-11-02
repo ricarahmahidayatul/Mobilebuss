@@ -39,6 +39,7 @@ private FirebaseAuth mAuth;
             public void onClick(View view) {
                 Intent Intent=new Intent(LoginActivity.this, Register.class);
                 startActivity(Intent);
+                finish();
             }
         });
 
