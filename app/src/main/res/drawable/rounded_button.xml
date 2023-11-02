@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <corners android:radius="50dp" />  <!-- Radius sudut (rounded) -->
-            <gradient
-                android:startColor="#E92C7C"
-                android:endColor="#F36B6F"
-                android:type="linear"
-                android:angle="0"/>          <!-- Sudut gradasi (0 untuk vertikal) -->
-        </shape>
-    </item>
-</layer-list>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <solid android:color="#5D89FC" />
+        <corners android:radius="60dp" />
+    </shape>
+
 
