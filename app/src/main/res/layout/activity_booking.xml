@@ -18,11 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:text="Mitra Sempurna Jaya"
                 android:gravity="center"
                 android:textSize="17dp">
@@ -35,14 +35,13 @@
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
-            app:contentPadding="18dp">
+            app:contentPadding="15dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/icon"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -56,9 +55,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="0dp"
-                    android:layout_toEndOf="@id/icon"
-                    android:text="Penjempitan " />
+                    android:text="Penjemputan " />
+
+                <EditText
+                    android:id="@+id/lokasijemput"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Ketik Lokasi Berangkat"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:padding="1dp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -68,21 +81,79 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="#FFFFFF"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:drawableLeft="@drawable/icon_my_location"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Lokasi Tujuan " />
+
+                    <EditText
+                        android:id="@+id/tujuanjalan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="Ketik Tujuan Anda"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:padding="1dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="20dp">
+                app:contentPadding="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
                         android:drawableLeft="@drawable/icon_calendar"
-                        android:text="Tanggal Pinjam"
                         android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Peminjaman" />
 
 
                 </LinearLayout>
@@ -95,19 +166,31 @@
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="20dp">
+                app:contentPadding="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
                         android:drawableLeft="@drawable/icon_calendar"
-                        android:text="Tanggal Kembali"
                         android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Kembali " />
+
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <LinearLayout
@@ -121,20 +204,25 @@
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="20dp">
+                app:contentPadding="15dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:drawableLeft="@drawable/icon_directions"
+                    android:textColor="#000000" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/icon_calendar"
-                        android:text="Tanggal Kembali"
-                        android:textColor="#000000" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Pilih Mobil " />
             </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -144,20 +232,25 @@
                     app:cardCornerRadius="16dp"
                     app:cardElevation="5dp"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="20dp">
+                    app:contentPadding="15dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:drawableLeft="@drawable/icon_gas_station"
+                        android:textColor="#000000" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/icon_calendar"
-                            android:text="Tanggal Kembali"
-                            android:textColor="#000000" />
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Bahan Bakar " />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -166,12 +259,12 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="@color/birmu"
-                android:text="Pesan"
-                android:layout_marginTop="60dp">
-            </Button>
-
+                android:minHeight="48dp"
+                android:text="Pesan"></Button>
 
         </LinearLayout>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
