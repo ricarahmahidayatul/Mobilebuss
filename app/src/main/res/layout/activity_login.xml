@@ -11,49 +11,71 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="310dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="690dp"
         android:text="Hallo Friend!"
         android:textColor="@color/white"
         android:textSize="15dp"
         tools:ignore="TextSizeCheck" />
-
-    <EditText
-        android:id="@+id/usernameRes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="109dp"
+        android:layout_height="107dp"
+        android:src="@drawable/logo"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="450dp"
+        android:gravity="center"
+        />
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="340dp"
-        android:ems="13"
         android:gravity="center"
-        android:inputType="text"
+        android:ems="13"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:text="Username"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@+id/passworRes"
+        android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="300dp"
         android:ems="13"
         android:gravity="center"
-        android:inputType="numberPassword"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:minHeight="48dp"
-        android:text="Password"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+
 
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -81,7 +103,7 @@
         tools:ignore="TextSizeCheck" />
 
     <TextView
-        android:id="@+id/tulisanlogin"
+        android:id="@+id/Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -93,5 +115,7 @@
         android:textColorHint="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold" />
+
+
 
 </RelativeLayout>

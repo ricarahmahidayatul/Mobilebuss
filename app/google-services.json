@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "61451233395",
+    "project_id": "loginregister-d6746",
+    "storage_bucket": "loginregister-d6746.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61451233395:android:36360f09bb6f7094a26206",
+        "android_client_info": {
+          "package_name": "com.example.travelbuss"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADxFXdfJDDci6By69dmeIJimdt7ID7q0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
