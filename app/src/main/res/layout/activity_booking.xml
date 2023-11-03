@@ -26,8 +26,8 @@
                 android:text="Mitra Sempurna Jaya"
                 android:gravity="center"
                 android:textSize="17dp">
-
             </TextView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
