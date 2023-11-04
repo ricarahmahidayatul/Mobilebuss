@@ -35,7 +35,7 @@
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
-            app:contentPadding="15dp">
+            app:contentPadding="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="15dp">
+                app:contentPadding="10dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -129,11 +129,11 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="#FFFFFF"
-                app:cardElevation="5dp"
+                app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="15dp">
+                app:contentPadding="10dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -151,12 +151,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="0dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_marginTop="0dp"
-                        android:text="Peminjaman" />
+                        android:text="Tanggal Pinjam " />
 
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="Tanggal"
+                        android:inputType="date"
+                        android:minHeight="48dp"
+                        android:padding="1dp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                </LinearLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -164,11 +176,11 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="#FFFFFF"
-                app:cardElevation="5dp"
+                app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="15dp">
+                app:contentPadding="10dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -186,12 +198,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="0dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_marginTop="0dp"
-                        android:text="Kembali " />
+                        android:text="Tanggal Kembali" />
 
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="tanggal"
+                        android:inputType="date"
+                        android:minHeight="48dp"
+                        android:padding="1dp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                </LinearLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -204,7 +228,7 @@
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="15dp">
+                app:contentPadding="10dp">
 
                 <TextView
                     android:layout_width="50dp"
@@ -232,7 +256,7 @@
                     app:cardCornerRadius="16dp"
                     app:cardElevation="5dp"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="15dp">
+                    app:contentPadding="10dp">
 
                     <TextView
                         android:layout_width="50dp"
@@ -259,12 +283,12 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="23dp"
                 android:backgroundTint="@color/birmu"
                 android:minHeight="48dp"
-                android:text="Pesan"></Button>
+                android:text="Pesan"
+                tools:ignore="TouchTargetSizeCheck"></Button>
 
         </LinearLayout>
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

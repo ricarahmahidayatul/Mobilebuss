@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileMitraActivity"
+    android:background="@drawable/ic_gradasibgbadan">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_bgputih"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:src="@drawable/logo"
+                android:layout_width="400dp"
+                android:layout_height="75dp"/>
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Profile"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="379dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="           MSJ Trans adalah sebuah usaha yang bergerak di
+bidang tranportasi di Kota Sidoarjo yang memberikan berbagai solusi transportsi meliputi
+persewaan mobil, paket wisata, dropoff, pelayanan kedinasan kab/kota jawa Timur dan pengiriman barang
+. Untuk memberikan kepuasan kepada setiap pelanggan, armada yang kami sediakan selalu
+dalam kondisi prima, karena perawatan rutin wajib dilakukan untuk menjamin keamanan dan kenyamanan
+konsumen selama menggunakan pelayanan kami."
+                    android:textSize="15dp"
+                    android:textStyle="normal"
+                    tools:ignore="TextSizeCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Visi"
+                    android:textStyle="bold"
+                    android:textSize="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="375dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="        Menjadi mitra bisnis yang setrategis dan dapat di percaya dalam bidang jasa transportasi yang selalu fokus pada peningkatan pelayanan serta selalu berorientasi pada kepuasan pelanggan."
+                    android:textSize="15dp"
+                    android:textStyle="normal"
+                    tools:ignore="TextSizeCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Misi"
+                    android:textStyle="bold"
+                    android:textSize="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="375dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="1. Menyediakan produk dan layanan berkualitas dengan harga bersaing untuk pelanggan kami demi memenuhi kebutuhan yang terus bekembang.
+
+2. Meberikan nilai lebih bagi pelanggan dengan layanan yang berkualitas yang kosisten
+
+3. Bersama dengan tim dalam membangun dan mengembangkan bisnis."
+                    android:textSize="15dp"
+                    android:textStyle="normal"
+                    tools:ignore="TextSizeCheck" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

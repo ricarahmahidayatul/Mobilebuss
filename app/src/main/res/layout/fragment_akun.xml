@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Akun"
+            android:text="Ubah Data Akun"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="60dp"/>
 
