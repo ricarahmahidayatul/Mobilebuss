@@ -12,15 +12,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Document;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
-private EditText editEmail, editPassword, editNohp;
+private EditText editEmail, editPassword;
 private Button btnRegister;
 private TextView bntLogin;
+private EditText nama, nohp, alamat;
 private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
 
     public Register() {
@@ -32,10 +42,15 @@ private FirebaseAuth mAuth;
         setContentView(R.layout.activity_register);
         editEmail = findViewById(R.id.usernameRes);
         editPassword = findViewById(R.id.passworRes);
-        editNohp = findViewById(R.id.nomortelefonRes);
+
+        nohp = findViewById(R.id.nomortelefonRes);
+        nama = findViewById(R.id.Nama);
+        alamat = findViewById(R.id.Alamat);
+
         btnRegister = findViewById(R.id.button2);
         bntLogin = findViewById(R.id.tulisanlogin);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
 
@@ -52,7 +67,9 @@ private FirebaseAuth mAuth;
             public void onClick(View v) {
                 String email = editEmail.getText().toString().trim();
                 String password = editPassword.getText().toString().trim();
-                String nohp = editNohp.getText().toString().trim();
+                String nomor = nohp.getText().toString().trim();
+                String name = nama.getText().toString().trim();
+                String almt = alamat.getText().toString().trim();
 
                 if(email.isEmpty()){
                     editEmail.setError("email tidak boleh kosong");
@@ -63,9 +80,26 @@ private FirebaseAuth mAuth;
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("Nohp", nomor);
+                                user.put("Nama", name);
+                                user.put("Alamat", almt);
+
+                                DocumentReference dbReff = db.collection("Akunn").document(mAuth.getUid());
+                                dbReff.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+
+                                    }
+                                });
                                 Toast.makeText(Register.this,"registrasi sukses", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Register.this, LoginActivity.class));
-                            }else{
+                                editEmail.setText("");
+                                editPassword.setText("");
+                                nohp.setText("");
+                                alamat.setText("");
+                                nama.setText("");
+                             }else{
                                 Toast.makeText(Register.this, "registergagal" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
