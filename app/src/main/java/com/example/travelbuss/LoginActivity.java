@@ -56,7 +56,7 @@ private FirebaseAuth mAuth;
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
                                         Toast.makeText(LoginActivity.this, "login berhasil", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                        startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
                                         finish();
 
                                     }
