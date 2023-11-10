@@ -82,6 +82,7 @@ private FirebaseAuth mAuth;
                             if(task.isSuccessful()){
 
                                 Map<String, Object> user = new HashMap<>();
+                                user.put("Email", email);
                                 user.put("Nohp", nomor);
                                 user.put("Nama", name);
                                 user.put("Alamat", almt);

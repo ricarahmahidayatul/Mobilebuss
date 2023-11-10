@@ -154,19 +154,18 @@
                         android:layout_marginTop="0dp"
                         android:text="Tanggal Pinjam " />
 
-                    <EditText
+                    <TextView
+                        android:id="@+id/txtTglPinjam"
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="20dp"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:id="@+id/txtTglPinjam"
-                        android:hint="Tanggal"
-                        android:inputType="date"
-                        android:minHeight="48dp"
-                        android:padding="1dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:hint="Pilih Tanggal"
+                        android:textColorHint="@color/black"
+                        />
+
+
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -179,6 +178,8 @@
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="10dp">
+
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -202,19 +203,18 @@
                         android:layout_marginTop="0dp"
                         android:text="Tanggal Kembali" />
 
-                    <EditText
+                    <TextView
+                        android:id="@+id/txtTglKembali"
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="20dp"
-                        android:background="@android:color/transparent"
-                        android:ems="10"
-                        android:id="@+id/txtTglKembali"
-                        android:hint="tanggal"
-                        android:inputType="date"
-                        android:minHeight="48dp"
-                        android:padding="1dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:hint="Pilih Tanggal"
+                        android:textColorHint="@color/black"
+                        />
+
+
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -224,8 +224,8 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="189dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     app:cardBackgroundColor="#FFFFFF"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="5dp"
@@ -233,8 +233,8 @@
                     app:contentPadding="10dp">
 
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="118dp"
+                        android:layout_height="38dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="0dp"
@@ -242,13 +242,12 @@
                         android:drawableLeft="@drawable/icon_directions"
                         android:textColor="#000000" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp"
-                        android:text="Pilih Mobil " />
+                    <Spinner
+                        android:id="@+id/spinnerlist"
+                        android:layout_width="110dp"
+                        android:layout_height="39dp"
+                        android:layout_marginStart="40dp"
+                        android:hint="Pilih mobil" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView

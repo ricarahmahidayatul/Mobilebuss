@@ -23,26 +23,16 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
                 android:layout_marginLeft="200dp"
                 android:layout_marginTop="80dp"
                 android:text="Your Name"
                 android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="100dp"
-                android:text="Nomor"
-                />
-
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/editNama"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -50,18 +40,18 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="200dp"
             android:layout_marginEnd="100dp"
-            android:layout_marginBottom="360dp"
+            android:layout_marginBottom="433dp"
             android:ems="10"
-            android:hint="Name"
             android:gravity="center"
+            android:hint="Name"
             android:inputType="text"
             android:minHeight="48dp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/edittAlamat"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -69,18 +59,18 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="250dp"
             android:layout_marginEnd="100dp"
-            android:layout_marginBottom="310dp"
+            android:layout_marginBottom="378dp"
             android:ems="10"
+            android:gravity="center"
             android:hint="Alamat"
             android:inputType="text"
-            android:gravity="center"
             android:minHeight="48dp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/editTextPhone2"
+            android:id="@+id/editNoHp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -88,36 +78,19 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="300dp"
             android:layout_marginEnd="100dp"
-            android:layout_marginBottom="260dp"
+            android:layout_marginBottom="333dp"
             android:ems="10"
+            android:gravity="center"
             android:hint="Nomor Hp"
             android:inputType="phone"
-            android:gravity="center"
             android:minHeight="48dp" />
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="354dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="210dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            tools:ignore="TouchTargetSizeCheck" />
+
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -125,10 +98,10 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="460dp"
             android:layout_marginEnd="100dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="135dp"
             android:backgroundTint="@color/birmu"
             android:text="Save"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
- <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,700 +8,87 @@
     android:background="@drawable/ic_gradasibgbadan"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/NamaUser"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Nama Customerr"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColorHint="@color/black"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="45dp" />
+
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="80dp"
         android:background="@drawable/rounded_bgputih"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
 
-            android:orientation="vertical"
-
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="302dp"
+            android:orientation="vertical">
 
             <RelativeLayout
 
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="20dp">
 
                 <ImageView
 
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/logo"
                     android:layout_width="130dp"
-                    android:layout_height="75dp"/>
+                    android:layout_height="75dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/logo" />
 
                 <TextView
                     android:id="@+id/textdashboard"
-                    android:text="Mitra Sempurna Jaya"
-                    android:textSize="22sp"
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Mitra Sempurna Jaya"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/textdashboard"
                     android:text="Jenis Mobil"
-                    android:textSize="14sp"
                     android:textColor="#CCCCCC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
-
-            <ScrollView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center">
+                android:layout_height="match_parent" />
 
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:alignmentMode="alignMargins"
-                    android:columnCount="2"
-                    android:columnOrderPreserved="false"
-                    android:rowCount="3">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/alphar2018"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/avanza2017"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
-                                android:text="Business"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="12dp"
-                        android:elevation="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="60dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Nama Mobil"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:inputType="text"
-                                android:minHeight="48dp"
-                                android:hint="Harga"
-                                android:textColor="#6f6f6f"
-                                android:textSize="18sp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </GridLayout>
-            </ScrollView>
         </LinearLayout>
+
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Booking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

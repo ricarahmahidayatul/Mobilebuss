@@ -1,13 +1,26 @@
 package com.example.travelbuss;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,7 +28,7 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class BerandaFragment extends Fragment {
-    TextView judul;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +38,13 @@ public class BerandaFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button btnboking;
+    private TextView nama;
+
+    FirebaseAuth auth;
+
+
+    private SharedPreferences sharedPreferences;
 
     public BerandaFragment() {
         // Required empty public constructor
@@ -51,11 +71,16 @@ public class BerandaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +88,36 @@ public class BerandaFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_beranda, container, false);
-        judul=view.findViewById(R.id.textdashboard);
+        btnboking=view.findViewById(R.id.button4);
+        nama=view.findViewById(R.id.NamaUser);
+
+        auth = FirebaseAuth.getInstance();
+
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference dbReff = db.collection("Akunn").document(auth.getCurrentUser().getUid());
+        dbReff.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+             nama.setText("Selamat datang "+documentSnapshot.getString("Nama"));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
+
+        btnboking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent Intent = new Intent(getContext(), BookingActivity.class);
+                startActivity(Intent);
+            }
+        });
+
+
         return view;
 
     }

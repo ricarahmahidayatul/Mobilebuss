@@ -2,8 +2,11 @@ package com.example.travelbuss;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.util.Patterns;
@@ -24,6 +27,8 @@ private EditText editEmail, editPassword;
 private Button btnLogin;
 private TextView btnRegister;
 private FirebaseAuth mAuth;
+private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,9 @@ private FirebaseAuth mAuth;
                 String email = editEmail.getText().toString().trim();
                 String password = editPassword.getText().toString().trim();
 
+
+
+
                 if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email) .matches()) {
                     if(!password.isEmpty()){
                         mAuth.signInWithEmailAndPassword(email, password)
@@ -58,7 +66,6 @@ private FirebaseAuth mAuth;
                                         Toast.makeText(LoginActivity.this, "login berhasil", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
                                         finish();
-
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
