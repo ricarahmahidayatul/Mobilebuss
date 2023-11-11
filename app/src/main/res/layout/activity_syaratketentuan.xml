@@ -7,7 +7,21 @@
     tools:context=".syaratketentuanActivity"
     android:background="@drawable/ic_gradasibgbadan">
 
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="361dp"
+        android:background="@null"
+        android:contentDescription="back"
+        android:src="@drawable/icon_back"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RelativeLayout
+        android:id="@+id/relativeLayout6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"

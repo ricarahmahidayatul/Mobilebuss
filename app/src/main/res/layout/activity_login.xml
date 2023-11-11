@@ -15,25 +15,28 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="18dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="690dp"
+        android:layout_marginEnd="199dp"
+        android:layout_marginBottom="672dp"
         android:text="Hallo Friend!"
         android:textColor="@color/white"
         android:textSize="15dp"
         tools:ignore="TextSizeCheck" />
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="109dp"
         android:layout_height="107dp"
-        android:src="@drawable/logo"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
+        android:layout_marginTop="129dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="450dp"
+        android:layout_marginBottom="495dp"
         android:gravity="center"
-        />
+        android:src="@drawable/logo" />
+
     <EditText
         android:id="@+id/Email"
         android:layout_width="wrap_content"
@@ -43,9 +46,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="340dp"
-        android:gravity="center"
+        android:layout_marginBottom="354dp"
         android:ems="13"
+        android:gravity="center"
         android:hint="Username"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
@@ -71,33 +74,38 @@
         android:textColorHint="@color/white" />
 
 
-
-
-
     <Button
         android:id="@+id/Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="127dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="167dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="490dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="175dp"
+        android:backgroundTint="@color/birma"
         android:text="Login"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="575dp"
         android:layout_marginEnd="113dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="135dp"
         android:text="You don’t have account "
-        android:textColor="#FFFFFF"
+        android:textColor="@color/item"
         android:textSize="15dp"
         android:textStyle="bold"
         tools:ignore="TextSizeCheck" />
@@ -106,16 +114,19 @@
         android:id="@+id/Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="133dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="607dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="73dp"
         android:text="Register"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="@color/birma"
+        android:textColorHint="@color/birma"
         android:textSize="30dp"
         android:textStyle="bold" />
-
 
 
 </RelativeLayout>

@@ -34,7 +34,6 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_marginBottom="302dp"
             android:orientation="vertical">
@@ -74,21 +73,29 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="398dp" />
 
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="199dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="52dp"
+            android:backgroundTint="@color/birma"
+            android:text="Booking"
+            android:textSize="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </Button>
+
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Booking"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

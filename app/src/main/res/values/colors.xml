@@ -3,10 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 <!--warna dasar aplikasi-->
-    <color name="oren">#F36B6F</color>
-    <color name="birmu">#5D89FC</color>
-    <color name="birma">#1D4CC6</color>
-    <color name="item">#060D15</color>
+    <color name="birucerah">#BEE6FF</color>
+    <color name="birmu">#00A3FF</color>
+    <color name="birma">#024480</color>
+    <color name="item">#4B4B4B</color>
     <color name="abutex">#9C9C9C</color>
     <color name="abuicon">#B0B0B0</color>
 </resources>

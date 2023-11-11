@@ -7,107 +7,123 @@
     tools:context=".ProfileMitraActivity"
     android:background="@drawable/ic_gradasibgbadan">
 
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="361dp"
+        android:background="@null"
+        android:contentDescription="back"
+        android:src="@drawable/icon_back"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RelativeLayout
+        android:id="@+id/relativeLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:background="@drawable/rounded_bgputih"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_alignParentRight="true"
-                android:src="@drawable/logo"
-                android:layout_width="400dp"
-                android:layout_height="75dp"/>
-
-        </RelativeLayout>
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Profile"
-                android:textStyle="bold"
-                android:textSize="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="20dp">
 
-                <TextView
-                    android:layout_width="379dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="           MSJ Trans adalah sebuah usaha yang bergerak di
+                <ImageView
+                    android:layout_width="400dp"
+                    android:layout_height="75dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/logo" />
+
+            </RelativeLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Profile"
+                        android:textSize="40dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="379dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="           MSJ Trans adalah sebuah usaha yang bergerak di
 bidang tranportasi di Kota Sidoarjo yang memberikan berbagai solusi transportsi meliputi
 persewaan mobil, paket wisata, dropoff, pelayanan kedinasan kab/kota jawa Timur dan pengiriman barang
 . Untuk memberikan kepuasan kepada setiap pelanggan, armada yang kami sediakan selalu
 dalam kondisi prima, karena perawatan rutin wajib dilakukan untuk menjamin keamanan dan kenyamanan
 konsumen selama menggunakan pelayanan kami."
-                    android:textSize="15dp"
-                    android:textStyle="normal"
-                    tools:ignore="TextSizeCheck" />
+                        android:textSize="15dp"
+                        android:textStyle="normal"
+                        tools:ignore="TextSizeCheck" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Visi"
-                    android:textStyle="bold"
-                    android:textSize="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Visi"
+                        android:textSize="40dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="375dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="        Menjadi mitra bisnis yang setrategis dan dapat di percaya dalam bidang jasa transportasi yang selalu fokus pada peningkatan pelayanan serta selalu berorientasi pada kepuasan pelanggan."
-                    android:textSize="15dp"
-                    android:textStyle="normal"
-                    tools:ignore="TextSizeCheck" />
+                    <TextView
+                        android:layout_width="375dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="        Menjadi mitra bisnis yang setrategis dan dapat di percaya dalam bidang jasa transportasi yang selalu fokus pada peningkatan pelayanan serta selalu berorientasi pada kepuasan pelanggan."
+                        android:textSize="15dp"
+                        android:textStyle="normal"
+                        tools:ignore="TextSizeCheck" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Misi"
-                    android:textStyle="bold"
-                    android:textSize="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Misi"
+                        android:textSize="40dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="375dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="1. Menyediakan produk dan layanan berkualitas dengan harga bersaing untuk pelanggan kami demi memenuhi kebutuhan yang terus bekembang.
+                    <TextView
+                        android:layout_width="375dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="1. Menyediakan produk dan layanan berkualitas dengan harga bersaing untuk pelanggan kami demi memenuhi kebutuhan yang terus bekembang.
 
 2. Meberikan nilai lebih bagi pelanggan dengan layanan yang berkualitas yang kosisten
 
 3. Bersama dengan tim dalam membangun dan mengembangkan bisnis."
-                    android:textSize="15dp"
-                    android:textStyle="normal"
-                    tools:ignore="TextSizeCheck" />
+                        android:textSize="15dp"
+                        android:textStyle="normal"
+                        tools:ignore="TextSizeCheck" />
 
                 </LinearLayout>
             </ScrollView>
