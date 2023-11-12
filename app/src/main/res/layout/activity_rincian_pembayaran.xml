@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".rincianPembayaran"
+    android:background="@drawable/ic_gradasibgbadan">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="361dp"
+        android:background="@null"
+        android:contentDescription="back"
+        android:src="@drawable/icon_back"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_bgputih"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="633dp"
+            android:gravity="center"
+            android:text="Transaksi"
+            android:textSize="25dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="583dp"
+            android:text="Penejmputan"
+            android:textSize="25dp"
+            android:textStyle="italic"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="528dp"
+            android:hint="Penejmputan"
+            android:inputType="text"
+            android:textSize="25dp"
+            android:textStyle="italic"></EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="165dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="483dp"
+            android:text="Tanggal Pinjam"
+            android:textSize="25dp"
+            android:textStyle="italic"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="428dp"
+            android:hint="Tanggal"
+            android:inputType="date"
+            android:textSize="25dp"
+            android:textStyle="italic"></EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="260dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="388dp"
+            android:text="Tanggal Kembali"
+            android:textSize="25dp"
+            android:textStyle="italic"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="290dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="338dp"
+            android:hint="Tanggal"
+            android:inputType="date"
+            android:textSize="25dp"
+            android:textStyle="italic"></EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="298dp"
+            android:text="Jenis Mobil"
+            android:textSize="25dp"
+            android:textStyle="italic"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="380dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="248dp"
+            android:hint="Mobil"
+            android:inputType="text"
+            android:textSize="25dp"
+            android:textStyle="italic"></EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="440dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="208dp"
+            android:text="Bahan Bakar"
+            android:textSize="25dp"
+            android:textStyle="italic"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="470dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="158dp"
+            android:hint="Bensin"
+            android:inputType="text"
+            android:textSize="25dp"
+            android:textStyle="italic"></EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="510dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="118dp"
+            android:hint="Total"
+            android:inputType="text"
+            android:textSize="25dp"
+            android:textStyle="italic"></EditText>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="590dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="35dp"
+            android:text="Bayar"
+            android:textSize="20dp"
+            android:backgroundTint="@color/birma"></Button>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
