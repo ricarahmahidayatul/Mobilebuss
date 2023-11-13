@@ -7,19 +7,6 @@
     tools:context=".rincianPembayaran"
     android:background="@drawable/ic_gradasibgbadan">
 
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="361dp"
-        android:background="@null"
-        android:contentDescription="back"
-        android:src="@drawable/icon_back"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <RelativeLayout
         android:id="@+id/relativeLayout5"
         android:layout_width="match_parent"
@@ -60,6 +47,7 @@
             android:textStyle="italic"></TextView>
 
         <EditText
+            android:id="@+id/txtPenjemputan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -216,6 +204,7 @@
             android:textStyle="italic"></EditText>
 
         <Button
+            android:id="@+id/btnbayar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

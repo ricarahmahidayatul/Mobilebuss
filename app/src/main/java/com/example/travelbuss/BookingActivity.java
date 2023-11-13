@@ -6,14 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +46,7 @@ public class BookingActivity extends AppCompatActivity {
     private TextView editTanggalkembali, editTanggalpinjam;
     private EditText editPenjemputan, editTujuan, editNamamobil, editBahanbakar;
     private Spinner spinerr;
+    private ImageButton balek;
     private ArrayList<String> arrayMobil;
     private  ArrayAdapter<String> adapter;
     private QuerySnapshot mobiles;
@@ -63,6 +67,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
         btnsimpan = findViewById(R.id.btnpesan);
+        balek = findViewById(R.id.back);
 
         db = FirebaseFirestore.getInstance();
 
@@ -73,12 +78,20 @@ public class BookingActivity extends AppCompatActivity {
         progressDialog.setMessage("Sabar Bolooo.....");
 
 
-
         adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayMobil);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinerr.setAdapter(adapter);
 
 
+
+
+       balek.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent inten = new Intent(BookingActivity.this, NavigationActivity.class);
+               startActivity(inten);
+           }
+       });
         editTanggalkembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -211,6 +224,8 @@ public class BookingActivity extends AppCompatActivity {
 
 
                     DocumentReference dbReff = db.collection("Booking").document();
+                    Intent Intent = new Intent(BookingActivity.this, rincianPembayaran.class);
+                    startActivity(Intent);
                     dbReff.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {

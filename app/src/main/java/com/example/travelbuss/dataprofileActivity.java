@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -18,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class dataprofileActivity extends AppCompatActivity {
 
     private EditText nama, alamat, nomor;
+    ImageButton balek;
 
     FirebaseAuth auth;
 
@@ -31,7 +35,7 @@ public class dataprofileActivity extends AppCompatActivity {
         nama = findViewById(R.id.editNama);
         alamat = findViewById(R.id.edittAlamat);
         nomor = findViewById(R.id.editNoHp);
-
+        balek = findViewById(R.id.back);
         auth = FirebaseAuth.getInstance();
 
 
@@ -49,8 +53,18 @@ public class dataprofileActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
+
+            }
+        });
+
+        balek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(dataprofileActivity.this, AkunFragment.class);
+                startActivity(inten);
             }
         });
     }
+
 }
 
