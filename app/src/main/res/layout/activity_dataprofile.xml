@@ -9,13 +9,14 @@
 
     <ImageButton
         android:id="@+id/back"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="81dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="361dp"
         android:background="@null"
         android:contentDescription="back"
         android:src="@drawable/icon_back"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,90 +31,64 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="90dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="50dp"
             android:src="@drawable/icon_account" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="190dp"
             android:layout_marginTop="80dp"
             android:text="Your Name"
             android:textSize="20dp" />
 
         <EditText
             android:id="@+id/editNama"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="433dp"
-            android:ems="10"
             android:gravity="center"
-            android:hint="Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="190dp"
+            android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:text="Nama" />
 
         <EditText
             android:id="@+id/edittAlamat"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="250dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="378dp"
-            android:ems="10"
             android:gravity="center"
-            android:hint="Alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="250dp"
+            android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:text="Alamat" />
 
         <EditText
             android:id="@+id/editNoHp"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="333dp"
-            android:ems="10"
             android:gravity="center"
-            android:hint="Nomor Hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="310dp"
+            android:ems="10"
             android:inputType="phone"
-            android:minHeight="48dp" />
-
+            android:minHeight="48dp"
+            android:text="Nomor HP" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="480dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="135dp"
-            android:backgroundTint="@color/birmu"
-            android:text="Save"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="150dp"
+            android:backgroundTint="@color/birma"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:text="Simpan" />
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
