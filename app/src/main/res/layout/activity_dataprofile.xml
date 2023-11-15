@@ -36,51 +36,71 @@
             android:src="@drawable/icon_account" />
 
         <TextView
+            android:id="@+id/labelnama"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="190dp"
             android:layout_marginTop="80dp"
             android:text="Your Name"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:clickable="false"
+            android:enabled="false"
             android:textSize="20dp" />
 
-        <EditText
-            android:id="@+id/editNama"
-            android:gravity="center"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/editEmail"
+            android:layout_width="213dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="70dp"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="190dp"
+            android:layout_marginEnd="70dp"
             android:ems="10"
+            android:gravity="center"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="Nama" />
+            android:text="Email"
+            android:textColor="@color/black" />
+
 
         <EditText
             android:id="@+id/edittAlamat"
-            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="70dp"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="250dp"
+            android:layout_marginEnd="70dp"
             android:ems="10"
+            android:gravity="center"
             android:inputType="text"
             android:minHeight="48dp"
             android:text="Alamat" />
 
         <EditText
             android:id="@+id/editNoHp"
-            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="70dp"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="310dp"
+            android:layout_marginEnd="70dp"
             android:ems="10"
+            android:gravity="center"
             android:inputType="phone"
             android:minHeight="48dp"
-            android:text="Nomor HP" />
+            android:text="hape" />
+
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonsimpan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="500dp"

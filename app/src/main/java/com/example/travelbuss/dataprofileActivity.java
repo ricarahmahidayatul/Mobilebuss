@@ -1,15 +1,21 @@
 package com.example.travelbuss;
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,10 +24,15 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class dataprofileActivity extends AppCompatActivity {
 
-    private EditText nama, alamat, nomor;
+    private EditText  editalamat, editnomor;
+    TextView editnama,editemail;
     ImageButton balek;
+    Button simpn;
 
     FirebaseAuth auth;
 
@@ -32,11 +43,14 @@ public class dataprofileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dataprofile);
 
 
-        nama = findViewById(R.id.editNama);
-        alamat = findViewById(R.id.edittAlamat);
-        nomor = findViewById(R.id.editNoHp);
+        editnama = findViewById(R.id.labelnama);
+        editalamat = findViewById(R.id.edittAlamat);
+        editemail = findViewById(R.id.editEmail);
+        editnomor = findViewById(R.id.editNoHp);
         balek = findViewById(R.id.back);
         auth = FirebaseAuth.getInstance();
+        simpn = findViewById(R.id.buttonsimpan);
+
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -44,9 +58,22 @@ public class dataprofileActivity extends AppCompatActivity {
         dbReff.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                nama.setText(documentSnapshot.getString("Nama"));
-                alamat.setText(documentSnapshot.getString("Alamat"));
-                nomor.setText(documentSnapshot.getString("Nohp"));
+
+                String nama = documentSnapshot.getString("Nama");
+                String email = documentSnapshot.getString("Email");
+                String alamat = documentSnapshot.getString("Alamat");
+                String nomor = documentSnapshot.getString("Telepon");
+
+                Log.d("dataprofileActivity", "Nama" +nama);
+                Log.d("dataprofileActivity", "Email" +email);
+                Log.d("dataprofileActivity", "Alamat" +alamat);
+                Log.d("dataprofileActivity", "Telepon" +nomor);
+
+                editnama.setText(nama);
+                editemail.setText(email);
+                editalamat.setText(alamat);
+                editnomor.setText(nomor);
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -59,11 +86,40 @@ public class dataprofileActivity extends AppCompatActivity {
 
         balek.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { 
                 Intent inten = new Intent(dataprofileActivity.this, AkunFragment.class);
-                startActivity(inten);
+                finish();
             }
         });
+
+        simpn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nam = editnama.getText().toString().trim();
+                String eml= editemail.getText().toString().trim();
+                String ALAMAT = editalamat.getText().toString().trim();
+                String Telpn = editnomor.getText().toString().trim();
+
+
+                Map<String, Object> user = new HashMap<>();
+                user.put("Nama", nam);
+                user.put("Email",eml);
+                user.put("Alamat", ALAMAT);
+                user.put("Telepon", Telpn);
+
+
+                DocumentReference dbReff = db.collection("Akunn").document(auth.getUid());
+                dbReff.update(user);
+
+
+
+
+            }
+
+        });
+
+
+
     }
 
 }

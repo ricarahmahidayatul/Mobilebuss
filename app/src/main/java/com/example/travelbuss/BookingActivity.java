@@ -215,17 +215,22 @@ public class BookingActivity extends AppCompatActivity {
                     Map<String, Object> user = new HashMap<>();
                     user.put("Penjemputan", penjemputan);
                     user.put("Tujuan", tujuan);
-                    user.put("Tanggal Pinjam", tglpinjam);
-                    user.put("Tanggal Kembali", tglkembali);
-                    user.put("Nama Mobil", mobil);
-                    user.put("Bahan Bakar", bbm);
+                    user.put("TanggalPinjam", tglpinjam);
+                    user.put("TanggalKembali", tglkembali);
+                    user.put("NamaMobil", mobil);
+                    user.put("BahanBakar", bbm);
 
 
 
 
                     DocumentReference dbReff = db.collection("Booking").document();
-                    Intent Intent = new Intent(BookingActivity.this, rincianPembayaran.class);
-                    startActivity(Intent);
+                    Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
+                    intent.putExtra("Tujuan",tujuan);
+                    intent.putExtra("TanggalPinjam", tglpinjam);
+                    intent.putExtra("TanggalKembali", tglkembali);
+                    intent.putExtra("NamaMobil", mobil);
+                    intent.putExtra("BahanBakar", bbm);
+                    startActivity(intent);
                     dbReff.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {

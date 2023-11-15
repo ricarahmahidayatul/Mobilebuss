@@ -18,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class rincianPembayaran extends AppCompatActivity {
 
-    private EditText penjemputan, nama, alamat, nomor;
+    private EditText tujuan, tglpnjm, tglkmbli, mobil, bbm;
     Button bayar;
 
     FirebaseAuth Auth;
@@ -31,8 +31,9 @@ public class rincianPembayaran extends AppCompatActivity {
 
 
         bayar = findViewById(R.id.btnbayar);
-        penjemputan = findViewById(R.id.txtPenjemputan);
-//        alamat = findViewById(R.id.edittAlamat);
+        tujuan= findViewById(R.id.txtTujuan);
+
+
 //        nomor = findViewById(R.id.editNoHp);
 
         Auth = FirebaseAuth.getInstance();
@@ -51,7 +52,7 @@ public class rincianPembayaran extends AppCompatActivity {
         dbReff.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                penjemputan.setText(documentSnapshot.getString("Penjemputan"));
+                tujuan.setText(documentSnapshot.getString("Tujuan"));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
