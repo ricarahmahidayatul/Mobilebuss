@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -14,6 +16,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.travelbuss.adapter.AdapterMobil;
+import com.example.travelbuss.models.MobilModels;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Firebase;
@@ -21,6 +26,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.protobuf.Option;
+import com.example.travelbuss.models.MobilModels;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,7 +48,7 @@ public class BerandaFragment extends Fragment {
     private String mParam2;
     private Button btnboking;
     private TextView nama;
-
+    private RecyclerView recyclerView;
     FirebaseAuth auth;
 
 
@@ -90,9 +98,20 @@ public class BerandaFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_beranda, container, false);
         btnboking=view.findViewById(R.id.button4);
         nama=view.findViewById(R.id.NamaUser);
-
+ recyclerView = view.findViewById(R.id.viewberanda);
         auth = FirebaseAuth.getInstance();
 
+
+        Query query = FirebaseFirestore.getInstance().collection("Data_Mobil");
+
+        FirestoreRecyclerOptions<MobilModels> option = new FirestoreRecyclerOptions.Builder<MobilModels>()
+                .setQuery(query, MobilModels.class)
+                .build();
+
+        AdapterMobil adapterMobil = new AdapterMobil(option);
+        recyclerView.setAdapter(adapterMobil);
+        recyclerView.setLayoutManager(new LinearLayoutManager(container != null ? container.getContext() : null, LinearLayoutManager.VERTICAL, false));;
+        adapterMobil.startListening();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference dbReff = db.collection("Akunn").document(auth.getCurrentUser().getUid());

@@ -72,8 +72,9 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/viewberanda"
                 android:layout_width="match_parent"
-                android:layout_height="398dp" />
+                android:layout_height="470dp" />
 
 
         </LinearLayout>
@@ -88,7 +89,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="199dp"
             android:layout_marginEnd="100dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/birma"
             android:text="Booking"
             android:textSize="20dp"
