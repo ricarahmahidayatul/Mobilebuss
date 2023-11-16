@@ -1,22 +1,28 @@
 package com.example.travelbuss.models;
-import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.DocumentId;
-import com.google.firebase.firestore.ServerTimestamp;
 
 public class RiwayatModels {
-    private String Nama;
-    private String Harga;
+    private String NamaMobil;
+    private String Tujuan;
 
     public RiwayatModels() {
-        this.Nama = "";
+
+        this.NamaMobil = "";
+        this.Tujuan="";
     }
 
     public String getNama() {
-        return Nama;
+        return NamaMobil;
     }
 
     public void setNama(String Nama) {
-        this.Nama = Nama;
+        this.NamaMobil = Nama;
+    }
+
+    public String getTujuan() {
+        return Tujuan;
+    }
+    public void setTujuan(String Tujuan) {
+        this.Tujuan = Tujuan;
     }
 
 

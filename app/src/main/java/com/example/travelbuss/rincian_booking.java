@@ -1,17 +1,16 @@
 package com.example.travelbuss;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -51,27 +50,28 @@ public class rincian_booking extends AppCompatActivity {
                 String TglK = documentSnapshot.getString("TanggalKembali");
                 String Mob = documentSnapshot.getString("NamaMobil");
                 String Bb = documentSnapshot.getString("BahanBakar");
+//                String ttl =documentSnapshot.getString("JumlahHari");
 //                String Total = documentSnapshot.getString("Telepon");
 
                 Log.d("dataprofile", "Tujuan" +Tuju);
                 Log.d("dataprofile", "tglpinjam" +TglP);
-                Log.d("dataprofile", "tglkembali" +TglK);
+                Log.d("dataprofile", "tglk" +TglK);
                 Log.d("dataprofile", "mobil" +Mob);
                 Log.d("dataprofile", "bbm" +Bb);
-//                Log.d("dataprofileActivity", "" +);
+//                Log.d("dataprofile", "total" +ttl);
 
                 tujuan.setText(Tuju);
                 tglpnjm.setText(TglP);
                 tglkmbli.setText(TglK);
                 mobil.setText(Mob);
                 bbm.setText(Bb);
-//                .setText();
+//                total.setText(ttl);
                 tujuan.setText(getIntent().getStringExtra("Tujuan"));
                 tglpnjm.setText(getIntent().getStringExtra("TanggalPinjam"));
                 tglkmbli.setText(getIntent().getStringExtra("TanggalKembali"));
                 mobil.setText(getIntent().getStringExtra("NamaMobil"));
                 bbm.setText(getIntent().getStringExtra("BahanBakar"));
-//                .setText(getIntent().getStringExtra(""));
+//                total.setText(getIntent().getStringExtra("JumlahHari"));
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -80,7 +80,6 @@ public class rincian_booking extends AppCompatActivity {
 
             }
         });
-
 
         }
     }

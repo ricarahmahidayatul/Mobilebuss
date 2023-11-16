@@ -98,7 +98,7 @@ public class BerandaFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_beranda, container, false);
         btnboking=view.findViewById(R.id.button4);
         nama=view.findViewById(R.id.NamaUser);
- recyclerView = view.findViewById(R.id.viewberanda);
+        recyclerView = view.findViewById(R.id.viewberanda);
         auth = FirebaseAuth.getInstance();
 
 

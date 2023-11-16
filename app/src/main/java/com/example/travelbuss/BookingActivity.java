@@ -1,15 +1,11 @@
 package com.example.travelbuss;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,23 +17,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class BookingActivity extends AppCompatActivity {
-
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -51,6 +49,8 @@ public class BookingActivity extends AppCompatActivity {
     private  ArrayAdapter<String> adapter;
     private QuerySnapshot mobiles;
     private ProgressDialog progressDialog;
+    private long totalHari;
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -58,6 +58,7 @@ public class BookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+
 
         spinerr = findViewById(R.id.spinnerlist);
         editPenjemputan = findViewById(R.id.txtPenjemputan);
@@ -81,6 +82,8 @@ public class BookingActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayMobil);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinerr.setAdapter(adapter);
+
+
 
 
 
@@ -150,15 +153,40 @@ public class BookingActivity extends AppCompatActivity {
                 //Showing the picked value in the textView
                 editTanggalkembali.setText(String.valueOf(year)+ "."+String.valueOf(month)+ "."+String.valueOf(day));
 
+
+
             }
         }, 2023, 11, 9);
 
         datePickerDialog.show();
+
     }
 
 
 
-        private void getDataSpin(){
+
+    private long calculateTotalDays() {
+        String pickUpDateawl = editTanggalpinjam.getText().toString();
+        String returnDateakhr = editTanggalkembali.getText().toString();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+        try {
+            Date pickUpDate1 = sdf.parse(pickUpDateawl);
+            Date returnDate2 = sdf.parse(returnDateakhr);
+
+            long diffInMilliseconds = returnDate2.getTime() - pickUpDate1.getTime();
+            totalHari = diffInMilliseconds / (24 * 60 * 60 * 1000); // Convert milidetik ke hari
+
+            TextView totalDaysTextView = findViewById(R.id.total_days);
+            totalDaysTextView.setText(String.valueOf(totalHari));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return totalHari;
+    }
+
+
+    private void getDataSpin(){
             progressDialog.show();
             db.collection("Data_Mobil").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
@@ -213,14 +241,14 @@ public class BookingActivity extends AppCompatActivity {
                     editBahanbakar.setError("pilih bbm");
                 }else{
                     Map<String, Object> user = new HashMap<>();
+                    long hari = calculateTotalDays();
                     user.put("Penjemputan", penjemputan);
                     user.put("Tujuan", tujuan);
                     user.put("TanggalPinjam", tglpinjam);
                     user.put("TanggalKembali", tglkembali);
                     user.put("NamaMobil", mobil);
                     user.put("BahanBakar", bbm);
-
-
+                    user.put("JumlahHari", hari);
 
 
                     DocumentReference dbReff = db.collection("Booking").document();
@@ -230,6 +258,7 @@ public class BookingActivity extends AppCompatActivity {
                     intent.putExtra("TanggalKembali", tglkembali);
                     intent.putExtra("NamaMobil", mobil);
                     intent.putExtra("BahanBakar", bbm);
+                    intent.putExtra("JumlahHari", hari);
                     startActivity(intent);
                     dbReff.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

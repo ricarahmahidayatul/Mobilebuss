@@ -8,6 +8,8 @@
     android:background="@drawable/ic_gradasibgbadan">
 
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavigasii"
         android:layout_width="match_parent"
