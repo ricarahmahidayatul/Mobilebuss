@@ -25,15 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
-        android:background="@drawable/rounded_bgputih"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@drawable/rounded_bgputih">
 
         <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="30dp"
             android:foregroundGravity="center"
             app:cardCornerRadius="16dp">
 
@@ -42,11 +40,11 @@
                 android:layout_height="150dp"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/icon_smart_toy" />
+                android:src="@drawable/servis" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="170dp"
                 android:text="Sempurna jaya"
@@ -54,8 +52,8 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="200dp"
                 android:text="Contact Center"
@@ -71,23 +69,6 @@
                 android:backgroundTint="#57CC20"
                 android:text="WhatsApp" />
         </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="470dp"
-            android:text="Sosial media"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="310dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="500dp"
-            android:background="#000000" />
-
     </RelativeLayout>
 
 

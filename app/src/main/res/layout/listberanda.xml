@@ -20,11 +20,11 @@
 
             <TextView
                 android:id="@+id/namamobil"
-                android:layout_width="wrap_content"
+                android:layout_width="99dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="198dp"
+                android:layout_marginStart="150dp"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="20dp"
@@ -35,10 +35,10 @@
 
             <TextView
                 android:id="@+id/harga"
-                android:layout_width="wrap_content"
+                android:layout_width="116dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginLeft="280dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="20dp"
