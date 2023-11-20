@@ -5,16 +5,15 @@ public class RiwayatModels {
     private String Tujuan;
 
     public RiwayatModels() {
-
         this.NamaMobil = "";
         this.Tujuan="";
     }
 
-    public String getNama() {
+    public String getNamaMobil() {
         return NamaMobil;
     }
 
-    public void setNama(String Nama) {
+    public void setNamaMobil(String Nama) {
         this.NamaMobil = Nama;
     }
 

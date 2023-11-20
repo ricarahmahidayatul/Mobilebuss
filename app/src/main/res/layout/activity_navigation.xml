@@ -8,8 +8,6 @@
     android:background="@drawable/ic_gradasibgbadan">
 
 
-
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavigasii"
         android:layout_width="match_parent"
@@ -19,8 +17,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="@color/birmu"
-        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="selected"
+        android:background="@drawable/ic_gradasibgbadan"
+        app:itemIconTint="@color/black"
         app:menu="@menu/menu_bawah_navigasi" />
 
     <com.google.android.material.card.MaterialCardView

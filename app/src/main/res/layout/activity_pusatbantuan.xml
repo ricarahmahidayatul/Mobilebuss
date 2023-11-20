@@ -26,6 +26,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:background="@drawable/rounded_bgputih"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
@@ -33,6 +34,7 @@
             android:layout_height="300dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="100dp"
+            android:foregroundGravity="center"
             app:cardCornerRadius="16dp">
 
             <ImageView
