@@ -3,7 +3,12 @@
     <style name="Base.Theme.TravelBuss" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/birucerah</item>
+        <item name="android:colorSecondary">@color/birmu</item>
     </style>
 
+    <style name="MobilLogin" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/birmu</item>
+    </style>
     <style name="Theme.TravelBuss" parent="Base.Theme.TravelBuss" />
 </resources>
