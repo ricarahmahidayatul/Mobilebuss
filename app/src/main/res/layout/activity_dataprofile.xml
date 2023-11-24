@@ -76,6 +76,7 @@
             android:layout_marginTop="250dp"
             android:layout_marginEnd="70dp"
             android:ems="10"
+            android:focusable="false"
             android:gravity="center"
             android:inputType="text"
             android:minHeight="48dp"
@@ -92,21 +93,14 @@
             android:layout_marginTop="310dp"
             android:layout_marginEnd="70dp"
             android:ems="10"
+            android:focusable="false"
             android:gravity="center"
             android:inputType="phone"
             android:minHeight="48dp"
             android:text="hape" />
 
 
-        <Button
-            android:id="@+id/buttonsimpan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="500dp"
-            android:layout_marginLeft="150dp"
-            android:backgroundTint="@color/birma"
-            android:textSize="20dp"
-            android:text="Simpan" />
+
 
 
     </RelativeLayout>
