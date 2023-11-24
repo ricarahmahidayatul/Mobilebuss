@@ -20,7 +20,7 @@ public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, Adap
     @Override
 
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull RiwayatModels model) {
-        Log.d("Bind", "onBindViewHolder: " + model.getNamaMobil() + "tujuan" +model.getTujuan());
+        Log.d("Bind", "onBindViewHolder: " + "namamobil "+model.getNamaMobil() + "tujuan" +model.getTujuan());
         holder.namamobil.setText(model.getNamaMobil());
         holder.tuju.setText(model.getTujuan());
     }

@@ -13,13 +13,15 @@ public class RiwayatModels {
         return NamaMobil;
     }
 
-    public void setNamaMobil(String Nama) {
-        this.NamaMobil = Nama;
+    public void setNamaMobil(String Penjemputan) {
+        this.NamaMobil = Penjemputan;
     }
 
     public String getTujuan() {
         return Tujuan;
     }
+
+
     public void setTujuan(String Tujuan) {
         this.Tujuan = Tujuan;
     }

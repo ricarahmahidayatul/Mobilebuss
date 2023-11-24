@@ -66,7 +66,7 @@ public class BookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
-mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         spinerr = findViewById(R.id.spinnerlist);
         editPenjemputan = findViewById(R.id.txtPenjemputan);
@@ -98,13 +98,13 @@ mAuth = FirebaseAuth.getInstance();
 
 
 
-       balek.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent inten = new Intent(BookingActivity.this, NavigationActivity.class);
-               startActivity(inten);
-           }
-       });
+        balek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(BookingActivity.this, NavigationActivity.class);
+                startActivity(inten);
+            }
+        });
         editTanggalkembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,7 +128,7 @@ mAuth = FirebaseAuth.getInstance();
         spinerr.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), adapter.getItem(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "" +adapter.getItem(i), Toast.LENGTH_SHORT).show();
                 IDMobil = mobiles.getDocuments().get(i).getId();
                 Log.e("ID Nama_Mobil", mobiles.getDocuments().get(i).getId());
             }
@@ -207,32 +207,32 @@ mAuth = FirebaseAuth.getInstance();
 
 
     private void getDataSpin(){
-            progressDialog.show();
-            db.collection("Data_Mobil").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                @Override
-                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                    progressDialog.show();
-                    mobiles = queryDocumentSnapshots;
-                    if (queryDocumentSnapshots.size()>0){
-                        arrayMobil.clear();
-                        for (DocumentSnapshot doc : queryDocumentSnapshots){
-                            arrayMobil.add(doc.getString("Nama"));
+        progressDialog.show();
+        db.collection("Data_Mobil").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                progressDialog.show();
+                mobiles = queryDocumentSnapshots;
+                if (queryDocumentSnapshots.size()>0){
+                    arrayMobil.clear();
+                    for (DocumentSnapshot doc : queryDocumentSnapshots){
+                        arrayMobil.add(doc.getString("Nama"));
 
-                        }
-                        adapter.notifyDataSetChanged();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "data idak ada", Toast.LENGTH_SHORT).show();
                     }
-
+                    adapter.notifyDataSetChanged();
+                }else{
+                    Toast.makeText(getApplicationContext(), "data idak ada", Toast.LENGTH_SHORT).show();
                 }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    progressDialog.show();
-                    Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
-                }
-            });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressDialog.show();
+                Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
 
