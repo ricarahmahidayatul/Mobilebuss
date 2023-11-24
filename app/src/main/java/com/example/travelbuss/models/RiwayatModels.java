@@ -3,8 +3,10 @@ package com.example.travelbuss.models;
 public class RiwayatModels {
     private String NamaMobil;
     private String Tujuan;
+    private String TanggalPinjam;
 
     public RiwayatModels() {
+        this.TanggalPinjam = "";
         this.NamaMobil = "";
         this.Tujuan="";
     }
@@ -27,6 +29,12 @@ public class RiwayatModels {
     }
 
 
+    public String getTanggalPinjam() {
+        return TanggalPinjam;
+    }
 
+    public void setTanggalPinjam(String tanggalPinjam) {
+        this.TanggalPinjam = tanggalPinjam;
+    }
 }
 

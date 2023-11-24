@@ -1,6 +1,9 @@
 package com.example.travelbuss;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +32,10 @@ public class AkunFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ImageView satu, dua, tiga, empat;
-
+    private ImageView satu, dua, tiga, empat, lima, enam, tujuh, delap;
+    private TextView siji, loro, telu, papat;
+    private Button logout;
+    private FirebaseAuth auth;
 
     public AkunFragment() {
         // Required empty public constructor
@@ -60,10 +68,11 @@ public class AkunFragment extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        FirebaseAuth auth = FirebaseAuth.getInstance();
         View view = inflater.inflate(R.layout.fragment_akun, container, false);
         // Inflate the layout for this fragment
 
@@ -71,6 +80,16 @@ public class AkunFragment extends Fragment {
         dua = view.findViewById(R.id.btntentangmitra);
         tiga = view.findViewById(R.id.btnpusatbantuan);
         empat = view.findViewById(R.id.btnsyaratdnaketentuan);
+        lima = view.findViewById(R.id.syarat);
+        enam = view.findViewById(R.id.pusat);
+        tujuh = view.findViewById(R.id.mitra);
+        delap = view.findViewById(R.id.akun);
+        siji = view.findViewById(R.id.ubah);
+        loro = view.findViewById(R.id.about);
+        telu = view.findViewById(R.id.bantuan);
+        papat = view.findViewById(R.id.ketentuan);
+        logout = view.findViewById(R.id.logout);
+
 
         satu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +125,75 @@ public class AkunFragment extends Fragment {
 
             }
         });
+        lima.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+                startActivity(Intent);
+            }
+        });
+         enam.setOnClickListener(new View.OnClickListener() {
+             @Override
+         public void onClick(View view) {
+               Intent Intent = new Intent(getContext(), pusatbantuanActivity.class);
+               startActivity(Intent);
+             }
+        });
+         tujuh.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent Intent = new Intent(getContext(), ProfileMitraActivity.class);
+                 startActivity(Intent);
+             }
+         });
+         delap.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent Intent = new Intent(getContext(), dataprofileActivity.class);
+                 startActivity(Intent);
+             }
+         });
+         siji.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent Intent = new Intent(getContext(), dataprofileActivity.class);
+                 startActivity(Intent);
+             }
+         });
+         loro.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent Intent = new Intent(getContext(), ProfileMitraActivity.class);
+                 startActivity(Intent);
+             }
+         });
+         telu.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent Intent = new Intent(getContext(), pusatbantuanActivity.class);
+                 startActivity(Intent);
+             }
+         });
+         papat.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                     Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+                     startActivity(Intent);
+             }
+         });
+         logout.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 auth.signOut();
+                 // Navigate to login screen
+                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                 startActivity(intent);
 
+                 // Close current activity
+//                 getActivity().finish();
+
+             }
+         });
         return view;
     }
 }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.travelbuss.adapter.AdapterRiwayat;
 import com.example.travelbuss.models.RiwayatModels;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -72,8 +73,9 @@ public class RiwayatFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_riwayat, container, false);
 
         recyclerView = view.findViewById(R.id.viewriwayat);
+        String firebaseUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Query query = FirebaseFirestore.getInstance().collection("Booking");
+        Query query = FirebaseFirestore.getInstance().collection("Booking").whereEqualTo("UID",firebaseUID);
 
         FirestoreRecyclerOptions<RiwayatModels> option = new FirestoreRecyclerOptions.Builder<RiwayatModels>()
                 .setQuery(query, RiwayatModels.class)

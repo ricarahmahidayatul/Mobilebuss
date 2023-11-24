@@ -20,9 +20,10 @@ public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, Adap
     @Override
 
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull RiwayatModels model) {
-        Log.d("Bind", "onBindViewHolder: " + "namamobil "+model.getNamaMobil() + "tujuan" +model.getTujuan());
+        Log.d("Bind", "onBindViewHolder: " + "namamobil" +model.getNamaMobil() + "tujuan" +model.getTujuan() +"pinjam" + model.getTanggalPinjam());
         holder.namamobil.setText(model.getNamaMobil());
         holder.tuju.setText(model.getTujuan());
+        holder.pinjam.setText(model.getTanggalPinjam());
     }
     @NonNull
     @Override
@@ -34,11 +35,12 @@ public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, Adap
         return viewHolder;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView namamobil, tuju;
+        public TextView namamobil, tuju, pinjam;
         public ViewHolder(View itemView) {
             super(itemView);
             namamobil = itemView.findViewById(R.id.namamobil);
             tuju = itemView.findViewById(R.id.tujuan);
+            pinjam = itemView.findViewById(R.id.pinjam);
         }
     }
 }
