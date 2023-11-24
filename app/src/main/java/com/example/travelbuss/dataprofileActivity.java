@@ -1,12 +1,6 @@
 package com.example.travelbuss;
 
-import static android.app.PendingIntent.getActivity;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,9 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class dataprofileActivity extends AppCompatActivity {
 
@@ -49,7 +42,7 @@ public class dataprofileActivity extends AppCompatActivity {
         editnomor = findViewById(R.id.editNoHp);
         balek = findViewById(R.id.back);
         auth = FirebaseAuth.getInstance();
-        simpn = findViewById(R.id.buttonsimpan);
+//        simpn = findViewById(R.id.buttonsimpan);
 
 
 
@@ -92,31 +85,31 @@ public class dataprofileActivity extends AppCompatActivity {
             }
         });
 
-        simpn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nam = editnama.getText().toString().trim();
-                String eml= editemail.getText().toString().trim();
-                String ALAMAT = editalamat.getText().toString().trim();
-                String Telpn = editnomor.getText().toString().trim();
-
-
-                Map<String, Object> user = new HashMap<>();
-                user.put("Nama", nam);
-                user.put("Email",eml);
-                user.put("Alamat", ALAMAT);
-                user.put("Telepon", Telpn);
-
-
-                DocumentReference dbReff = db.collection("Akunn").document(auth.getUid());
-                dbReff.update(user);
-
-
-
-
-            }
-
-        });
+//        simpn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String nam = editnama.getText().toString().trim();
+//                String eml= editemail.getText().toString().trim();
+//                String ALAMAT = editalamat.getText().toString().trim();
+//                String Telpn = editnomor.getText().toString().trim();
+//
+//
+//                Map<String, Object> user = new HashMap<>();
+//                user.put("Nama", nam);
+//                user.put("Email",eml);
+//                user.put("Alamat", ALAMAT);
+//                user.put("Telepon", Telpn);
+//
+//
+//                DocumentReference dbReff = db.collection("Akunn").document(auth.getUid());
+//                dbReff.update(user);
+//
+//
+//
+//
+//            }
+//
+//        });
 
 
 
