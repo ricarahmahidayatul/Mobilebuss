@@ -7,20 +7,19 @@
     tools:context=".NavigationActivity"
     android:background="@drawable/ic_gradasibgbadan">
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavigasii"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
+        android:animateLayoutChanges="true"
+        android:foregroundGravity="bottom"
+        android:theme="@style/bissmilah"
+        app:menu="@menu/menu_bawah_navigasi"
         app:labelVisibilityMode="selected"
-        android:background="@color/birmu"
-        app:itemIconTint="@color/black"
-        app:menu="@menu/menu_bawah_navigasi" />
+        app:itemIconTint="@color/white"
+        android:background="@color/birmu"/>
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/konten"
@@ -34,7 +33,6 @@
         tools:ignore="DuplicateIds,UnknownId">
 
     </com.google.android.material.card.MaterialCardView>
-
 
     <FrameLayout
         android:id="@+id/konten"
@@ -51,3 +49,4 @@
 
     </FrameLayout>
 </RelativeLayout>
+

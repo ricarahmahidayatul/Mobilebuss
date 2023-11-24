@@ -3,7 +3,27 @@
     <style name="Base.Theme.TravelBuss" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/birmu</item>
+        <item name="colorPrimaryVariant">@color/birma</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/birma</item>
+        <item name="colorSecondaryVariant">@color/birmu</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/birucerah</item>
+
     </style>
 
+    <style name="bissmilah">
+        <item name="colorSecondaryContainer">@color/birmu</item>
+        <item name="colorPrimary">@color/birma</item>
+    </style>
+
+    <style name="MobilLogin" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/birmu</item>
+    </style>
     <style name="Theme.TravelBuss" parent="Base.Theme.TravelBuss" />
+
+
 </resources>
