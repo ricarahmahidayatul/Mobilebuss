@@ -2,11 +2,12 @@ package com.example.travelbuss.models;
 
 public class MobilModels {
     private String Nama;
-    private String Harga;
+    private String Harga, Gambar;
 
     public MobilModels() {
         this.Nama = "";
         this.Harga="";
+        this.Gambar="";
     }
 
     public String getNama() {
@@ -25,7 +26,17 @@ public class MobilModels {
         this.Harga = Harga;
     }
 
+    public String getGambar() {
+        return Gambar;
+    }
 
+    public void setGambar(String Gambar) {
+        this.Gambar = Gambar;
+    }
 
 }
+
+
+
+
 
