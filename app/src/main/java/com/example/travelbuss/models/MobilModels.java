@@ -1,8 +1,10 @@
 package com.example.travelbuss.models;
 
+import com.google.firebase.firestore.DocumentId;
+
 public class MobilModels {
-    private String Nama;
-    private String Harga, Gambar;
+    private String Nama,Harga, Gambar;
+
 
     public MobilModels() {
         this.Nama = "";

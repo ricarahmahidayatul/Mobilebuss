@@ -40,6 +40,7 @@
 
         <EditText
             android:clickable="false"
+            android:focusable="false"
 
             android:id="@+id/txtTujuan"
             android:layout_width="match_parent"
@@ -65,7 +66,9 @@
             android:textStyle="italic" />
 
         <EditText
+            android:focusable="false"
             android:clickable="false"
+
             android:id="@+id/txtTglPinjam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,6 +94,8 @@
 
         <EditText
             android:clickable="false"
+            android:focusable="false"
+
             android:id="@+id/txtTglKembali"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,6 +121,8 @@
 
         <EditText
             android:clickable="false"
+            android:focusable="false"
+
             android:id="@+id/txtmobil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,20 +148,24 @@
 
         <EditText
             android:clickable="false"
+            android:focusable="false"
+
             android:id="@+id/txtbensin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="470dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="158dp"
             android:hint="Bensin"
             android:inputType="text"
             android:textSize="20dp"
             android:textStyle="italic" />
 
         <EditText
+
             android:clickable="false"
+            android:focusable="false"
+
             android:id="@+id/txttotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -178,5 +189,18 @@
             android:text="Bayar"
             android:textSize="20dp"
             android:backgroundTint="@color/birma" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtbensin"
+            android:layout_alignStart="@+id/txtbensin"
+            android:layout_marginStart="-6dp"
+            android:layout_marginTop="30dp"
+            android:text="+ Blum Termasuk Biaya Toll dan Bensin"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

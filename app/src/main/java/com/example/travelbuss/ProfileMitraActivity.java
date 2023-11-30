@@ -1,11 +1,11 @@
 package com.example.travelbuss;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ProfileMitraActivity extends AppCompatActivity {
@@ -21,7 +21,7 @@ public class ProfileMitraActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent inten = new Intent(ProfileMitraActivity.this, AkunFragment.class);
-                startActivity(inten);
+                finish();
 
             }
 

@@ -81,7 +81,7 @@ public class RiwayatFragment extends Fragment {
                 .setQuery(query, RiwayatModels.class)
                 .build();
 
-        AdapterRiwayat adapterRiwayat = new AdapterRiwayat(option);
+        AdapterRiwayat adapterRiwayat = new AdapterRiwayat(option, getContext());
         recyclerView.setAdapter(adapterRiwayat);
         recyclerView.setLayoutManager(new LinearLayoutManager(container != null ? container.getContext() : null, LinearLayoutManager.VERTICAL, false));;
         adapterRiwayat.startListening();

@@ -1,6 +1,7 @@
 package com.example.travelbuss;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,14 +20,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.midtrans.sdk.corekit.callback.TransactionFinishedCallback;
+import com.midtrans.sdk.corekit.core.MidtransSDK;
+import com.midtrans.sdk.corekit.core.TransactionRequest;
+import com.midtrans.sdk.corekit.core.themes.CustomColorTheme;
+import com.midtrans.sdk.corekit.models.CustomerDetails;
+import com.midtrans.sdk.corekit.models.ItemDetails;
+import com.midtrans.sdk.corekit.models.snap.CreditCard;
+import com.midtrans.sdk.corekit.models.snap.TransactionResult;
+import com.midtrans.sdk.uikit.SdkUIFlowBuilder;
 
-public class rincian_booking extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class rincian_booking extends AppCompatActivity implements TransactionFinishedCallback {
 
     private EditText tujuan, tglpnjm, tglkmbli, mobil, bbm, total;
-    Button bayar;
+    Button bayar,cobaBayar;
     FirebaseAuth Auth;
     Long jumlahHari;
 
@@ -45,21 +54,57 @@ public class rincian_booking extends AppCompatActivity {
         bbm = findViewById(R.id.txtbensin);
         total = findViewById(R.id.txttotal);
 
+
+
+
         Auth = FirebaseAuth.getInstance();
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String bookingUid = getIntent().getStringExtra("DocumentID");
+
+        DocumentReference reff = db.collection("Booking").document(bookingUid);
+
+        reff.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                jumlahHari = documentSnapshot.getLong("JumlahHari");
+                db.collection("Data_Mobil").document(getIntent().getStringExtra("IDMobil")).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        mobil.setText( task.getResult().getString("Nama"));
+                        Long harga = Long.valueOf(task.getResult().getString("Harga"));
+
+                        if (jumlahHari == 1){
+                            Long totalHarga = harga;
+                            total.setText(totalHarga.toString());
+                        }else {
+                            Long totalHarga = harga * jumlahHari;
+                            total.setText(totalHarga.toString());
+                        }
 
 
-        Query reff = db.collection("Booking").whereEqualTo("UID",getIntent().getStringExtra("UID"));
 
+
+                    }
+                });
+
+
+            }
+
+        });
+
+
+//        cobaBayar.setOnClickListener(view -> {
+//            clickPay();
+//        });
         bayar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String jmlh = total.getText().toString().trim();
 
-                String bookingUid = getIntent().getStringExtra("DocumentID");
-
+                clickPay();
                 // Membuat referensi ke dokumen "Booking" menggunakan UID
+                assert bookingUid != null;
                 DocumentReference bookingRef = FirebaseFirestore.getInstance().collection("Booking").document(bookingUid);
 
 
@@ -71,6 +116,7 @@ public class rincian_booking extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 // Tambahkan tindakan yang ingin Anda lakukan setelah berhasil menyimpan total
                                 // Contoh: Menampilkan pesan sukses atau pindah ke halaman lain
+
                                 Toast.makeText(rincian_booking.this, "Total berhasil disimpan", Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -85,34 +131,44 @@ public class rincian_booking extends AppCompatActivity {
             }
         });
 
-        reff.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                QuerySnapshot documentSnapshots = task.getResult();
-                for (QueryDocumentSnapshot document : task.getResult()) {
-                    Log.d("TAG", "Document Id: " + document.getId());
-                    jumlahHari = document.getLong("JumlahHari");
-                }
-                db.collection("Data_Mobil").document(getIntent().getStringExtra("IDMobil")).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        mobil.setText( task.getResult().getString("Nama"));
-                        Long harga = Long.valueOf(task.getResult().getString("Harga"));
-                        Long totalHarga = jumlahHari * harga;
-                        total.setText(totalHarga.toString());
-
-
-                    }
-
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-            }
-
-        });
+//        reff.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                QuerySnapshot documentSnapshots = task.getResult();
+//                for (QueryDocumentSnapshot document : task.getResult()) {
+//                    Log.d("TAG", "Document Id: " + document.getId());
+//                    jumlahHari = document.getLong("JumlahHari");
+//                }
+//                db.collection("Data_Mobil").document(getIntent().getStringExtra("IDMobil")).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//
+//                        mobil.setText( task.getResult().getString("Nama"));
+//                        Long harga = Long.valueOf(task.getResult().getString("Harga"));
+//
+//                        if (jumlahHari == 1){
+//                            Long totalHarga = harga;
+//                            total.setText(totalHarga.toString());
+//                        }else {
+//                            Long totalHarga = harga * jumlahHari;
+//                            total.setText(totalHarga.toString());
+//                        }
+//
+//
+//
+//
+//                    }
+//
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//
+//                    }
+//                });
+//            }
+//
+//        });
 
         DocumentReference dbReff = db.collection("Booking").document(Auth.getCurrentUser().getUid());
                 dbReff.get().addOnSuccessListener(documentSnapshot -> {
@@ -171,6 +227,92 @@ public class rincian_booking extends AppCompatActivity {
 
 
 
+makePayment();
+            }
 
+    private void makePayment() {
+        SdkUIFlowBuilder.init()
+                .setContext(this)
+                .setMerchantBaseUrl("http://103.127.98.193/rica/")
+                .setClientKey("SB-Mid-client-rsH44pqfaHs9nGC2")
+                .setTransactionFinishedCallback(this)
+                .enableLog(true)
+                .setLanguage("id")
+                .setColorTheme(new CustomColorTheme("#C9F2FF", "#000000", "#1C4A86"))
+                .buildSDK();
+    }
+
+    @Override
+    public void onTransactionFinished(TransactionResult result) {
+        if (result.getResponse() != null) {
+            switch (result.getStatus()) {
+                case TransactionResult.STATUS_SUCCESS:
+                    Toast.makeText(this, "Transaction Berhasiil Boli " + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, NavigationActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                case TransactionResult.STATUS_PENDING:
+                    Toast.makeText(this, "Transaction Pending " + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+
+                    break;
+                case TransactionResult.STATUS_FAILED:
+                    Toast.makeText(this, "Transaction Failed" + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+
+                    break;
+            }
+            result.getResponse().getStatusMessage();
+        } else if (result.isTransactionCanceled()) {
+            Toast.makeText(this, "Transaction Failed", Toast.LENGTH_LONG).show();
+
+        } else {
+            if (result.getStatus().equals(TransactionResult.STATUS_INVALID)) {
+                Toast.makeText(this, "Transaction Invalid" + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+                Log.d("Pembayaran", "onTransactionFinished: " + result.getResponse().getTransactionId());
+            } else {
+                Toast.makeText(this, "Something Wrong", Toast.LENGTH_LONG).show();
             }
         }
+
+
+
+    }
+
+
+
+    public TransactionRequest transactionRequest(String id, double price, int qty, String name) {
+
+        double getTextfromtexttl = Double.parseDouble(total.getText().toString());
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        TransactionRequest request = new TransactionRequest(Long.toString(System.currentTimeMillis()), getTextfromtexttl);
+        ItemDetails details = new ItemDetails(id, (double) price, qty, name);
+        ArrayList<ItemDetails> itemDetails = new ArrayList<>();
+        itemDetails.add(details);
+        request.setItemDetails(itemDetails);
+        request.setCustomerDetails(new CustomerDetails("Pembeli", "Laundry", auth.getCurrentUser().getEmail(), "08962342384"));
+        CreditCard creditCard = new CreditCard();
+        creditCard.setSaveCard(false);
+        creditCard.setAuthentication(CreditCard.MIGS);
+        request.setCreditCard(creditCard);
+        return request;
+    }
+
+
+    private void clickPay() {
+        try {
+            double getTextfromtexttl = Double.parseDouble(total.getText().toString());
+
+            MidtransSDK.getInstance().setTransactionRequest(transactionRequest(getIntent().getStringExtra("DocumentID"),getTextfromtexttl, 1,"Tiket Bus Cug"));
+            MidtransSDK.getInstance().startPaymentUiFlow(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+}

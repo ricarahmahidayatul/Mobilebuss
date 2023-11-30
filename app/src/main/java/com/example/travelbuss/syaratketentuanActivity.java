@@ -1,11 +1,11 @@
 package com.example.travelbuss;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class syaratketentuanActivity extends AppCompatActivity {
     ImageButton balek;
@@ -20,7 +20,7 @@ public class syaratketentuanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent inten = new Intent(syaratketentuanActivity.this, AkunFragment.class);
-                startActivity(inten);
+                finish();
             }
         });
     }

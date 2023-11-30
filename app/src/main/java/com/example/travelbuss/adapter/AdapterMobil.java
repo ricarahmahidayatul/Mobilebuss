@@ -27,6 +27,7 @@ public class AdapterMobil extends FirestoreRecyclerAdapter<MobilModels, AdapterM
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull MobilModels model) {
         Log.d("Bind", "onBindViewHolder: " + model.getNama() +model.getGambar());
+
         holder.namaMobil.setText(model.getNama());
         holder.harga.setText(model.getHarga());
         Glide.with(context)

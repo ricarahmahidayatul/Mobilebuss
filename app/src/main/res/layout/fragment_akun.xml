@@ -166,9 +166,10 @@
                     android:id="@+id/ubah"
                     android:layout_width="224dp"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
                     android:layout_marginStart="60dp"
                     android:layout_marginLeft="60dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="70dp"
                     android:layout_marginBottom="545dp"
                     android:text="Ubah Data Akun" />
 

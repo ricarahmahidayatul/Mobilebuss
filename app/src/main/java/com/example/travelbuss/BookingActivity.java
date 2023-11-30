@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -56,7 +57,7 @@ public class BookingActivity extends AppCompatActivity {
     private  ArrayAdapter<String> adapter;
     private QuerySnapshot mobiles;
     private ProgressDialog progressDialog;
-    private long totalHari;
+    private long totalHari, hri;
 
 
 
@@ -85,6 +86,10 @@ public class BookingActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(BookingActivity.this);
         progressDialog.setTitle("Proses");
         progressDialog.setMessage("Sabar Bolooo.....");
+
+        getDataSpin();
+
+
 
 
         adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayMobil);
@@ -138,7 +143,7 @@ public class BookingActivity extends AppCompatActivity {
 
             }
         });
-        getDataSpin();
+//        getDataSpin();
 
     }
 
@@ -148,10 +153,10 @@ public class BookingActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
                 //Showing the picked value in the textView
-                editTanggalpinjam.setText(String.valueOf(year)+ "."+String.valueOf(month)+ "."+String.valueOf(day));
+                editTanggalpinjam.setText(String.valueOf(year)+ "."+String.valueOf(month +1)+ "."+String.valueOf(day));
 
             }
-        }, 2023, 11, 9);
+        }, 2023, 12, 1);
 
         datePickerDialog.show();
     }
@@ -162,12 +167,12 @@ public class BookingActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
                 //Showing the picked value in the textView
-                editTanggalkembali.setText(String.valueOf(year)+ "."+String.valueOf(month)+ "."+String.valueOf(day));
+                editTanggalkembali.setText(String.valueOf(year)+ "."+String.valueOf(month +1)+ "."+String.valueOf(day));
 
 
 
             }
-        }, 2023, 11, 9);
+        }, 2023, 12, 2);
 
         datePickerDialog.show();
 
@@ -195,7 +200,8 @@ public class BookingActivity extends AppCompatActivity {
             Date returnDate2 = sdf.parse(returnDateakhr);
 
             long diffInMilliseconds = returnDate2.getTime() - pickUpDate1.getTime();
-            totalHari = diffInMilliseconds / (24 * 60 * 60 * 1000); // Convert milidetik ke hari
+            hri = diffInMilliseconds / (24 * 60 * 60 * 1000); // Convert milidetik ke hari
+            totalHari = hri + 1;
 
             TextView totalDaysTextView = findViewById(R.id.total_days);
             totalDaysTextView.setText(String.valueOf(totalHari));
@@ -220,16 +226,19 @@ public class BookingActivity extends AppCompatActivity {
 
                     }
                     adapter.notifyDataSetChanged();
+                    progressDialog.dismiss();
                 }else{
                     Toast.makeText(getApplicationContext(), "data idak ada", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                 }
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                progressDialog.show();
                 Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+                progressDialog.dismiss();
 
             }
         });
@@ -283,13 +292,13 @@ public class BookingActivity extends AppCompatActivity {
                     user.put("UID", mAuth.getCurrentUser().getUid());
 
 
-                    DocumentReference dbReff = db.collection("Booking").document();
+                    CollectionReference dbReff = db.collection("Booking");
 
 
 
-                    dbReff.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    dbReff.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
-                        public void onSuccess(Void unused) {
+                        public void onSuccess(DocumentReference documentReference) {
                             Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
                             intent.putExtra("Tujuan",tujuan);
                             intent.putExtra("TanggalPinjam", tglpinjam);
@@ -298,6 +307,7 @@ public class BookingActivity extends AppCompatActivity {
                             intent.putExtra("BahanBakar", bbm);
                             intent.putExtra("JumlahHari", hari);
                             intent.putExtra("UID", mAuth.getCurrentUser().getUid());
+                            intent.putExtra("DocumentID",documentReference.getId());
 
 
 

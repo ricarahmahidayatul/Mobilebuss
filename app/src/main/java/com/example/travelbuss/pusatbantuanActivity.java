@@ -36,7 +36,7 @@ Button btnwaa;
             @Override
             public void onClick(View view) {
                 Intent inten = new Intent(pusatbantuanActivity.this, AkunFragment.class);
-                startActivity(inten);
+                finish();
             }
         });
     }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/intinyainti"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
@@ -18,15 +19,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <TextView
                 android:id="@+id/namamobil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="27dp"
                 android:layout_marginLeft="120dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginBottom="20dp"
                 android:text="Nama Mobil"
                 android:textSize="15dp"
@@ -34,16 +36,46 @@
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tujuan"
+                android:id="@+id/tuju"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="128dp"
                 android:layout_marginLeft="280dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="55dp"
                 android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@+id/namamobil"
-                android:text="Harga"
+                android:text="Tujuan"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="38dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/namamobil"
+                android:text="Tgl Pinjam :"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="38dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="54dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/namamobil"
+                android:text="Tujuan        :"
                 android:textSize="15dp"
                 android:textStyle="bold"
                 tools:ignore="TextSizeCheck" />
@@ -53,9 +85,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginStart="234dp"
+                android:layout_marginTop="7dp"
                 android:text="Tanggal Pinjam" />
 
         </RelativeLayout>
