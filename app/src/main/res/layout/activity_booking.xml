@@ -42,14 +42,44 @@
                 android:gravity="center"
                 android:text="Mitra Sempurna Jaya"
                 android:textSize="17dp"></TextView>
-            <TextView
-                android:id="@+id/total_days"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:hint="hari"
-                android:textSize="17dp"></TextView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Nama " />
+
+                    <EditText
+                        android:id="@+id/txtNama"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="Ketik Lokasi Berangkat"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:padding="1dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,6 +128,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,6 +176,9 @@
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
+
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -268,34 +302,11 @@
                         android:hint="Pilih mobil" />
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="189dp"
-                    android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="5dp"
-                    app:cardUseCompatPadding="true"
-                    app:contentPadding="10dp">
 
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        android:drawableLeft="@drawable/icon_gas_station"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp"
-                        android:text="Bahan Bakar " />
-                </androidx.cardview.widget.CardView>
             </LinearLayout>
+
+
+
 
             <Button
                 android:id="@+id/btnpesan"

@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class rincian_booking extends AppCompatActivity implements TransactionFinishedCallback {
 
-    private EditText tujuan, tglpnjm, tglkmbli, mobil, bbm, total;
+    private EditText tujuan, tglpnjm, tglkmbli, mobil, nama, total, haei;
     Button bayar,cobaBayar;
     FirebaseAuth Auth;
     Long jumlahHari;
@@ -51,7 +51,7 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
         tglpnjm = findViewById(R.id.txtTglPinjam);
         tglkmbli = findViewById(R.id.txtTglKembali);
         mobil = findViewById(R.id.txtmobil);
-        bbm = findViewById(R.id.txtbensin);
+        nama = findViewById(R.id.txtbensin);
         total = findViewById(R.id.txttotal);
 
 
@@ -177,7 +177,7 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
                     String TglP = documentSnapshot.getString("TanggalPinjam");
                     String TglK = documentSnapshot.getString("TanggalKembali");
                     String Mob = documentSnapshot.getString("NamaMobil");
-                    String Bb = documentSnapshot.getString("BahanBakar");
+                    String Nma = documentSnapshot.getString("NamaPenyewa");
 //                String ttl =documentSnapshot.getString("JumlahHari");
 //                String Total = documentSnapshot.getString("Telepon");
 
@@ -185,7 +185,7 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
                     Log.d("dataprofile", "tglpinjam" + TglP);
                     Log.d("dataprofile", "tglk" + TglK);
                     Log.d("dataprofile", "mobil" + Mob);
-                    Log.d("dataprofile", "bbm" + Bb);
+                    Log.d("dataprofile", "Namapenyewa" + Nma);
 
 //                Log.d("dataprofile", "total" +ttl);
 
@@ -193,13 +193,13 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
                     tglpnjm.setText(TglP);
                     tglkmbli.setText(TglK);
                     mobil.setText(Mob);
-                    bbm.setText(Bb);
+                    nama.setText(Nma);
 //                total.setText(ttl);
                     tujuan.setText(getIntent().getStringExtra("Tujuan"));
                     tglpnjm.setText(getIntent().getStringExtra("TanggalPinjam"));
                     tglkmbli.setText(getIntent().getStringExtra("TanggalKembali"));
                     mobil.setText(getIntent().getStringExtra("NamaMobil"));
-                    bbm.setText(getIntent().getStringExtra("BahanBakar"));
+                    nama.setText(getIntent().getStringExtra("NamaPenyewa"));
 //                total.setText(getIntent().getStringExtra("JumlahHari"));
 
                 }).addOnFailureListener(new OnFailureListener() {

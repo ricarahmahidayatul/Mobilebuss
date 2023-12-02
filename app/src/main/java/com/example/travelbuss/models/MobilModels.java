@@ -1,15 +1,18 @@
 package com.example.travelbuss.models;
 
-import com.google.firebase.firestore.DocumentId;
-
 public class MobilModels {
-    private String Nama,Harga, Gambar;
+    private String Nama;
+    private String Harga;
+    private String Gambar;
+
+    private String Kursi;
 
 
     public MobilModels() {
         this.Nama = "";
         this.Harga="";
         this.Gambar="";
+        this.Kursi="";
     }
 
     public String getNama() {
@@ -34,6 +37,14 @@ public class MobilModels {
 
     public void setGambar(String Gambar) {
         this.Gambar = Gambar;
+    }
+
+    public String getKursi() {
+        return Kursi;
+    }
+
+    public void setKursi(String kursi) {
+        Kursi = kursi;
     }
 
 }

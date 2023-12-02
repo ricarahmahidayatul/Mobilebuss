@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/listmobil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#FFFFFF"
@@ -15,7 +16,7 @@
         app:contentPadding="10dp">
 
         <ImageView
-            android:id="@+id/gmbr"
+            android:id="@+id/rincigmbr"
             android:layout_width="100dp"
             android:layout_height="60dp"/>
 <!--            app:CornerRadius="16dp"-->

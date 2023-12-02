@@ -17,6 +17,8 @@ import com.example.travelbuss.detailRiwayat;
 import com.example.travelbuss.models.RiwayatModels;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, AdapterRiwayat.ViewHolder> {
     Context context;
     public AdapterRiwayat(FirestoreRecyclerOptions<RiwayatModels> options, Context context) {super(options); this.context = context;}
@@ -26,13 +28,23 @@ public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, Adap
         Log.d("Bind", "onBindViewHolder: " + "namamobil" +model.getNamaMobil() + "tujuan" +model.getTujuan() +"pinjam" + model.getTanggalPinjam());
 
 
+
         holder.namamobil.setText(model.getNamaMobil());
         holder.tuju.setText(model.getTujuan());
         holder.pinjam.setText(model.getTanggalPinjam());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        db.collection("Data_Mobil").document(model.getDocument("IDMobil").toString()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//            @Override
+//            public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                namamobil.setText(documentSnapshot.get("Nama").toString());
+//            }
+//        });
 
         holder.inti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Intent intent = new Intent(context, detailRiwayat.class);
 
                 intent.putExtra("tujuan",model.getTujuan());

@@ -50,7 +50,7 @@ public class BookingActivity extends AppCompatActivity {
     String IDMobil;
 
     private TextView editTanggalkembali, editTanggalpinjam;
-    private EditText editPenjemputan, editTujuan, editNamamobil, editBahanbakar;
+    private EditText editPenjemputan, editTujuan, editnama, editnamamobil;
     private Spinner spinerr;
     private ImageButton balek;
     private ArrayList<String> arrayMobil;
@@ -70,6 +70,7 @@ public class BookingActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         spinerr = findViewById(R.id.spinnerlist);
+        editnama= findViewById(R.id.txtNama);
         editPenjemputan = findViewById(R.id.txtPenjemputan);
         editTujuan = findViewById(R.id.txtTujuan);
         editTanggalpinjam = findViewById(R.id.txtTglPinjam);
@@ -203,8 +204,8 @@ public class BookingActivity extends AppCompatActivity {
             hri = diffInMilliseconds / (24 * 60 * 60 * 1000); // Convert milidetik ke hari
             totalHari = hri + 1;
 
-            TextView totalDaysTextView = findViewById(R.id.total_days);
-            totalDaysTextView.setText(String.valueOf(totalHari));
+//            TextView totalDaysTextView = findViewById(R.id.total_days);
+//            totalDaysTextView.setText(String.valueOf(totalHari));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -246,20 +247,20 @@ public class BookingActivity extends AppCompatActivity {
 
 
 
-        btnsimpan.setOnClickListener(new View.OnClickListener(){
+        btnsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String penjemputan = editPenjemputan.getText().toString().trim();
                 String tujuan = editTujuan.getText().toString().trim();
                 String tglpinjam = editTanggalpinjam.getText().toString().trim();
-                String tglkembali= editTanggalkembali.getText().toString().trim();
+                String tglkembali = editTanggalkembali.getText().toString().trim();
                 String mobil = spinerr.getSelectedItem().toString();
-                String bbm = "iya";
+                String nama = editnama.getText().toString().trim();
 //                String mobilhr = spinerr.getSelectedItem().toString();
 
                 Log.d("onClick", "onClick: idMobil" + IDMobil);
-                if(penjemputan.isEmpty()){
+                if (penjemputan.isEmpty()) {
                     editPenjemputan.setError("penjemputan tidak boleh kosong");
                 } else if (tujuan.isEmpty()) {
                     editTujuan.setError("tujuan tidak boleh kosong");
@@ -268,55 +269,67 @@ public class BookingActivity extends AppCompatActivity {
                 } else if (tglkembali.isEmpty()) {
                     editTanggalkembali.setError("pilih tanggal pinjam");
                 } else if (mobil.isEmpty()) {
-                    editNamamobil.setError("pilih mobil yang diinginkan");
-                } else if (bbm.isEmpty()) {
-                    editBahanbakar.setError("pilih bbm");
-                }else{
-                    db.collection("Data_Mobil").whereEqualTo("Nama",spinerr.getSelectedItem().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("TAG", "Document Id: " + document.getId());
-                            }
-                        }
-                    });
-                    Map<String, Object> user = new HashMap<>();
+                    editnamamobil.setError("pilih mobil yang diinginkan");
+                } else if (nama.isEmpty()) {
+                    editnama.setError("masukan nama");
+                } else {
+
                     long hari = calculateTotalDays();
-                    user.put("Penjemputan", penjemputan);
-                    user.put("Tujuan", tujuan);
-                    user.put("TanggalPinjam", tglpinjam);
-                    user.put("TanggalKembali", tglkembali);
-                    user.put("IDMobil", IDMobil);
-                    user.put("BahanBakar", bbm);
-                    user.put("JumlahHari", hari);
-                    user.put("UID", mAuth.getCurrentUser().getUid());
+                    if (hari <= 0) {
+                        // Show an error message when total days is less than or equal to 0
+                        Toast.makeText(getApplicationContext(), "Kesalaahn dalam memilih tanggal", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Continue with saving the data
+                        // ... (existing code)
+                        Map<String, Object> user = new HashMap<>();
+//                        long hari = calculateTotalDays();
+
+                        user.put("Penjemputan", penjemputan);
+                        user.put("Tujuan", tujuan);
+                        user.put("TanggalPinjam", tglpinjam);
+                        user.put("TanggalKembali", tglkembali);
+                        user.put("IDMobil", IDMobil);
+                        user.put("NamaPenyewa", nama);
+                        user.put("JumlahHari", hari);
+                        user.put("UID", mAuth.getCurrentUser().getUid());
 
 
-                    CollectionReference dbReff = db.collection("Booking");
+                        CollectionReference dbReff = db.collection("Booking");
 
 
-
-                    dbReff.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
-                            intent.putExtra("Tujuan",tujuan);
-                            intent.putExtra("TanggalPinjam", tglpinjam);
-                            intent.putExtra("TanggalKembali", tglkembali);
-                            intent.putExtra("IDMobil", IDMobil);
-                            intent.putExtra("BahanBakar", bbm);
-                            intent.putExtra("JumlahHari", hari);
-                            intent.putExtra("UID", mAuth.getCurrentUser().getUid());
-                            intent.putExtra("DocumentID",documentReference.getId());
-
+                        dbReff.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
+                                intent.putExtra("Tujuan", tujuan);
+                                intent.putExtra("TanggalPinjam", tglpinjam);
+                                intent.putExtra("TanggalKembali", tglkembali);
+                                intent.putExtra("IDMobil", IDMobil);
+                                intent.putExtra("NamaPenyewa", nama);
+                                intent.putExtra("JumlahHari", hari);
+                                intent.putExtra("UID", mAuth.getCurrentUser().getUid());
+                                intent.putExtra("DocumentID", documentReference.getId());
 
 
-                            startActivity(intent);
-                        }
-                    });
+                                startActivity(intent);
+                            }
+                        });
+
+
+                        db.collection("Data_Mobil").whereEqualTo("Nama", spinerr.getSelectedItem().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Log.d("TAG", "Document Id: " + document.getId());
+                                }
+                            }
+                        });
+
+                    }
                 }
             }
         });
+
 
 
     }
