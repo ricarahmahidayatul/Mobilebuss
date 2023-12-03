@@ -197,10 +197,11 @@
             android:layout_below="@+id/txtbensin"
             android:layout_alignStart="@+id/txtbensin"
             android:layout_marginStart="-6dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:text="+ Blum Termasuk Biaya Toll dan Bensin"
             android:textSize="10dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
