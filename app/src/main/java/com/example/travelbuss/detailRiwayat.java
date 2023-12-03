@@ -1,5 +1,6 @@
 package com.example.travelbuss;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.EditText;
 
@@ -10,11 +11,16 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class detailRiwayat extends AppCompatActivity {
-    EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal;
+    EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal, tvPenyewa, tvTKembali, tvPenjemputan;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_detail_riwayat);
         tvNama = findViewById(R.id.mobil);
@@ -22,6 +28,9 @@ public class detailRiwayat extends AppCompatActivity {
         tvTanggal = findViewById(R.id.tanggal);
         tvHari =findViewById(R.id.hari);
         tvTotal = findViewById(R.id.total);
+        tvPenyewa = findViewById(R.id.Namabose);
+        tvTKembali = findViewById(R.id.jdltglkembalitujuan);
+        tvPenjemputan = findViewById(R.id.penjemputan);
         Bundle bundle = getIntent().getExtras();
 //        Toast.makeText(this, bundle.getString("uid"), Toast.LENGTH_SHORT).show();
         if (bundle != null){
@@ -30,6 +39,9 @@ public class detailRiwayat extends AppCompatActivity {
             tvTotal.setText(bundle.getString("total"));
             tvTanggal.setText(bundle.getString("tanggalpinjam"));
             tvHari .setText(bundle.getString("hari"));
+            tvPenyewa .setText(bundle.getString("namapenyewa"));
+            tvTKembali .setText(bundle.getString("tanggalkembali"));
+            tvPenjemputan .setText(bundle.getString("penjemputan"));
 
 
 
@@ -39,7 +51,9 @@ public class detailRiwayat extends AppCompatActivity {
                     tvHari.setText(documentSnapshot.get("JumlahHari").toString());
                     tvTanggal.setText(documentSnapshot.get("TanggalPinjam").toString());
                     tvTujuan.setText(documentSnapshot.get("Tujuan").toString());
-
+                    tvPenjemputan.setText(documentSnapshot.get("Penjemputan").toString());
+                    tvTKembali.setText(documentSnapshot.get("TanggalKembali").toString());
+                    tvNama.setText(documentSnapshot.get("NamaPenyewa").toString());
                     tvTotal.setText(documentSnapshot.get("Total").toString());
 
                     db.collection("Data_Mobil").document(documentSnapshot.get("IDMobil").toString()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

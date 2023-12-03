@@ -22,6 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="25dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="0dp"
@@ -29,6 +30,13 @@
         android:text="Mobil"
         android:textSize="20dp"
         android:textStyle="italic" />
+=======
+        android:layout_marginStart="30dp"
+        android:text="Mobil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Namabose" />
+    <EditText
+>>>>>>> 9191788b78d1a2d9188b2cafb43fa369a4f99d98
 
     <EditText
         android:clickable="false"
@@ -56,6 +64,7 @@
         android:textSize="20dp"
         android:textStyle="italic" />
 
+<<<<<<< HEAD
     <EditText
         android:focusable="false"
         android:clickable="false"
@@ -81,6 +90,12 @@
         android:text="Tanggal Kembali"
         android:textSize="20dp"
         android:textStyle="italic" />
+=======
+        android:layout_marginTop="10dp"
+        android:text="Tanggal Pinjam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobil" />
+>>>>>>> 9191788b78d1a2d9188b2cafb43fa369a4f99d98
 
     <EditText
         android:clickable="false"
@@ -98,13 +113,75 @@
         android:textSize="20dp"
         android:textStyle="italic" />
 
+
     <TextView
+<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="350dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="298dp"
+=======
+        android:id="@+id/tglkembali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+
+        android:layout_marginTop="10dp"
+        android:text="Tanggal Kembali"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tanggal" />
+
+    <EditText
+        android:id="@+id/jdltglkembalitujuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tglkembali" />
+
+    <TextView
+        android:id="@+id/jdltujuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+
+        android:layout_marginTop="8dp"
+        android:text="Tujuan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jdltglkembalitujuan" />
+
+    <EditText
+        android:id="@+id/tujuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jdltujuan" />
+
+    <TextView
+        android:id="@+id/jdlhari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+
+        android:layout_marginTop="10dp"
+>>>>>>> 9191788b78d1a2d9188b2cafb43fa369a4f99d98
         android:text="Jumlah Hari"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -128,10 +205,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="25dp"
         android:layout_marginTop="440dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
+=======
+        android:layout_marginStart="30dp"
+
+>>>>>>> 9191788b78d1a2d9188b2cafb43fa369a4f99d98
         android:text="Total"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -140,6 +222,7 @@
         android:clickable="false"
         android:focusable="false"
 
+<<<<<<< HEAD
         android:id="@+id/txtbensin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,10 +244,22 @@
         android:text="Penjempuatan"
         android:textSize="20dp"
         android:textStyle="italic" />
+=======
+    <TextView
+        android:id="@+id/jdlpenjemputan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+
+        android:text="Penjemputan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total" />
+>>>>>>> 9191788b78d1a2d9188b2cafb43fa369a4f99d98
 
     <EditText
         android:clickable="false"
         android:focusable="false"
+<<<<<<< HEAD
         android:id="@+id/txtbensi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -177,3 +272,44 @@
         android:textStyle="italic"/>
 
 </RelativeLayout>
+=======
+        android:id="@+id/penjemputan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jdlpenjemputan" />
+
+
+    <TextView
+        android:id="@+id/jdlnamapenyewa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+
+        android:layout_marginTop="36dp"
+        android:text="Nama Penyewa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Namabose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jdlnamapenyewa" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> 9191788b78d1a2d9188b2cafb43fa369a4f99d98

@@ -31,8 +31,8 @@ private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
 
-    public Register() {
-    }
+//    public Register() {
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -58,6 +58,43 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="0dp"
+                        android:text="Nama " />
+
+                    <EditText
+                        android:id="@+id/txtNama"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="Ketik Lokasi Berangkat"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:padding="1dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -91,6 +128,7 @@
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -139,6 +177,9 @@
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
+
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -262,7 +303,7 @@
                         android:layout_marginStart="40dp"
                         android:hint="Pilih mobil" />
 
-
+                    
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 

@@ -1,6 +1,7 @@
 package com.example.travelbuss.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.travelbuss.R;
 import com.example.travelbuss.models.MobilModels;
+import com.example.travelbuss.rincianmobil;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -26,7 +29,7 @@ public class AdapterMobil extends FirestoreRecyclerAdapter<MobilModels, AdapterM
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull MobilModels model) {
-        Log.d("Bind", "onBindViewHolder: " + model.getNama() +model.getGambar());
+        Log.d("Bind", "onBindViewHolder: " + model.getNama() +model.getGambar() + " "+model.getKursi());
 
         holder.namaMobil.setText(model.getNama());
         holder.harga.setText(model.getHarga());
@@ -34,6 +37,18 @@ public class AdapterMobil extends FirestoreRecyclerAdapter<MobilModels, AdapterM
                 .load(model.getGambar())
                 .centerCrop()
                 .into(holder.gambar);
+
+        holder.listMobil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, rincianmobil.class);
+                intent.putExtra("Nama",model.getNama());
+                intent.putExtra("Kursi", model.getKursi());
+                intent.putExtra("Harga", model.getHarga());
+                intent.putExtra("Gambar", model.getGambar());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @NonNull
@@ -47,15 +62,19 @@ public class AdapterMobil extends FirestoreRecyclerAdapter<MobilModels, AdapterM
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView namaMobil;
+        public TextView namaMobil, kursi;
         public TextView harga;
         ImageView gambar;
+        CardView listMobil;
 
         public ViewHolder(View itemView) {
             super(itemView);
             namaMobil = itemView.findViewById(R.id.namamobil);
             harga = itemView.findViewById(R.id.harga);
-            gambar = itemView.findViewById(R.id.gmbr);
+            kursi=itemView.findViewById(R.id.rincikursi);
+            gambar = itemView.findViewById(R.id.rincigmbr);
+            listMobil = itemView.findViewById(R.id.listmobil);
+
         }
     }
 }
