@@ -25,16 +25,17 @@ public class detailRiwayat extends AppCompatActivity {
         setContentView(R.layout.activity_detail_riwayat);
         tvNama = findViewById(R.id.mobil);
         tvTujuan = findViewById(R.id.tujuan);
-        tvTanggal = findViewById(R.id.tanggal);
-        tvHari =findViewById(R.id.hari);
+        tvTanggal = findViewById(R.id.tanggalpinjam);
+        tvHari =findViewById(R.id.Totalhari);
         tvTotal = findViewById(R.id.total);
         tvPenyewa = findViewById(R.id.Namabose);
-        tvTKembali = findViewById(R.id.jdltglkembalitujuan);
+        tvTKembali = findViewById(R.id.tanggalkembali);
         tvPenjemputan = findViewById(R.id.penjemputan);
         Bundle bundle = getIntent().getExtras();
 //        Toast.makeText(this, bundle.getString("uid"), Toast.LENGTH_SHORT).show();
         if (bundle != null){
 
+//            tvNama.setText(bundle.getString("namambbil"));
             tvTujuan.setText(bundle.getString("tujuan"));
             tvTotal.setText(bundle.getString("total"));
             tvTanggal.setText(bundle.getString("tanggalpinjam"));
@@ -53,7 +54,7 @@ public class detailRiwayat extends AppCompatActivity {
                     tvTujuan.setText(documentSnapshot.get("Tujuan").toString());
                     tvPenjemputan.setText(documentSnapshot.get("Penjemputan").toString());
                     tvTKembali.setText(documentSnapshot.get("TanggalKembali").toString());
-                    tvNama.setText(documentSnapshot.get("NamaPenyewa").toString());
+                    tvPenyewa.setText(documentSnapshot.get("NamaPenyewa").toString());
                     tvTotal.setText(documentSnapshot.get("Total").toString());
 
                     db.collection("Data_Mobil").document(documentSnapshot.get("IDMobil").toString()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

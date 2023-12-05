@@ -27,7 +27,7 @@
         android:layout_marginTop="65dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="583dp"
-        android:text="Mobil"
+        android:text="Nama Penyewa"
         android:textSize="20dp"
         android:textStyle="italic" />
 
@@ -35,14 +35,14 @@
     <EditText
         android:clickable="false"
         android:focusable="false"
-        android:id="@+id/mobil"
+        android:id="@+id/Namabose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="528dp"
-        android:hint="Mobil"
+        android:hint="Nama Penyewa"
         android:inputType="text"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -54,14 +54,14 @@
         android:layout_marginTop="165dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="483dp"
-        android:text="Tanggal Pinjam"
+        android:text="Mobil"
         android:textSize="20dp"
         android:textStyle="italic" />
 
     <EditText
         android:focusable="false"
         android:clickable="false"
-        android:id="@+id/txtTglPinjam"
+        android:id="@+id/mobil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -80,7 +80,7 @@
         android:layout_marginTop="260dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="388dp"
-        android:text="Tanggal Kembali"
+        android:text="Tanggal Pinjam"
         android:textSize="20dp"
         android:textStyle="italic" />
 
@@ -89,7 +89,7 @@
         android:clickable="false"
         android:focusable="false"
 
-        android:id="@+id/txtTglKembali"
+        android:id="@+id/tanggalpinjam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -108,7 +108,7 @@
         android:layout_marginTop="350dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
-        android:text="Jumlah"
+        android:text="Tanggal Kembali"
         android:textSize="20dp"
         android:textStyle="italic" />
 
@@ -117,51 +117,42 @@
         android:clickable="false"
         android:focusable="false"
 
-        android:id="@+id/txtmobil"
+        android:id="@+id/tanggalkembali"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="380dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="248dp"
-        android:hint="Jumlah"
+        android:hint="Tanggal"
         android:inputType="text"
         android:textSize="20dp"
         android:textStyle="italic" />
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="25dp"
         android:layout_marginTop="440dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="445dp"
-        android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
-        android:text="Total"
+        android:text="Total Hari"
         android:textSize="20dp"
         android:textStyle="italic" />
-
 
     <EditText
         android:clickable="false"
         android:focusable="false"
 
 
-        android:id="@+id/txtbensin"
+        android:id="@+id/Totalhari"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="470dp"
         android:layout_marginEnd="50dp"
-        android:hint="Total"
+        android:hint="Total Hari"
         android:inputType="text"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -170,7 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="530dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
         android:text="Penjempuatan"
@@ -181,11 +172,63 @@
         android:clickable="false"
         android:focusable="false"
 
-        android:id="@+id/txtbensi"
+        android:id="@+id/penjemputan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="555dp"
+        android:layout_marginEnd="50dp"
+        android:hint="Jemput"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="615dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="208dp"
+        android:text="Tujuan"
+        android:textSize="20dp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:clickable="false"
+        android:focusable="false"
+
+        android:id="@+id/tujuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="640dp"
+        android:layout_marginEnd="50dp"
+        android:hint="Jemput"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="208dp"
+        android:text="Total"
+        android:textSize="20dp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:clickable="false"
+        android:focusable="false"
+
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="730dp"
         android:layout_marginEnd="50dp"
         android:hint="Jemput"
         android:inputType="text"

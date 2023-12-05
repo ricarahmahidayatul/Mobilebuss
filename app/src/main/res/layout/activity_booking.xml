@@ -73,7 +73,7 @@
                         android:layout_marginTop="20dp"
                         android:background="@android:color/transparent"
                         android:ems="10"
-                        android:hint="Ketik Lokasi Berangkat"
+                        android:hint="Isikan nama anda "
                         android:inputType="text"
                         android:minHeight="48dp"
                         android:padding="1dp"
