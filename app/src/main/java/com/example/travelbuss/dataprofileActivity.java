@@ -55,12 +55,12 @@ public class dataprofileActivity extends AppCompatActivity {
                 String nama = documentSnapshot.getString("Nama");
                 String email = documentSnapshot.getString("Email");
                 String alamat = documentSnapshot.getString("Alamat");
-                String nomor = documentSnapshot.getString("Telepon");
+                String nomor = documentSnapshot.getString("Nohp");
 
                 Log.d("dataprofileActivity", "Nama" +nama);
                 Log.d("dataprofileActivity", "Email" +email);
                 Log.d("dataprofileActivity", "Alamat" +alamat);
-                Log.d("dataprofileActivity", "Telepon" +nomor);
+                Log.d("dataprofileActivity", "Nohp" +nomor);
 
                 editnama.setText(nama);
                 editemail.setText(email);

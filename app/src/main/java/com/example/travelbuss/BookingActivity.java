@@ -57,6 +57,7 @@ public class BookingActivity extends AppCompatActivity {
     private  ArrayAdapter<String> adapter;
     private QuerySnapshot mobiles;
     private ProgressDialog progressDialog;
+    String Hp;
     private long totalHari, hri;
 
 
@@ -81,6 +82,22 @@ public class BookingActivity extends AppCompatActivity {
         balek = findViewById(R.id.back);
 
         db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference dReff = db.collection("Akunn").document(mAuth.getCurrentUser().getUid());
+        dReff.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Hp = (documentSnapshot.getString("Nohp"));
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
 
         arrayMobil = new ArrayList<>();
 
@@ -257,6 +274,8 @@ public class BookingActivity extends AppCompatActivity {
                 String tglkembali = editTanggalkembali.getText().toString().trim();
                 String mobil = spinerr.getSelectedItem().toString();
                 String nama = editnama.getText().toString().trim();
+                String nohp = Hp;
+
 //                String mobilhr = spinerr.getSelectedItem().toString();
 
                 Log.d("onClick", "onClick: idMobil" + IDMobil);
@@ -291,6 +310,7 @@ public class BookingActivity extends AppCompatActivity {
                         user.put("IDMobil", IDMobil);
                         user.put("NamaPenyewa", nama);
                         user.put("JumlahHari", hari);
+                        user.put("NoHp", nohp);
                         user.put("UID", mAuth.getCurrentUser().getUid());
 
 
@@ -307,6 +327,7 @@ public class BookingActivity extends AppCompatActivity {
                                 intent.putExtra("IDMobil", IDMobil);
                                 intent.putExtra("NamaPenyewa", nama);
                                 intent.putExtra("JumlahHari", hari);
+                                intent.putExtra("NoHp", nohp);
                                 intent.putExtra("UID", mAuth.getCurrentUser().getUid());
                                 intent.putExtra("DocumentID", documentReference.getId());
 

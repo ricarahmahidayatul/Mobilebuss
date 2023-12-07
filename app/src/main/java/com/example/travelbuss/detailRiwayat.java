@@ -11,7 +11,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class detailRiwayat extends AppCompatActivity {
-    EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal, tvPenyewa, tvTKembali, tvPenjemputan;
+    EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal, tvPenyewa, tvTKembali, tvPenjemputan, tvhp;
 
 
     @SuppressLint("MissingInflatedId")
@@ -23,6 +23,7 @@ public class detailRiwayat extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_detail_riwayat);
+        tvhp = findViewById(R.id.hape);
         tvNama = findViewById(R.id.mobil);
         tvTujuan = findViewById(R.id.tujuan);
         tvTanggal = findViewById(R.id.tanggalpinjam);
@@ -36,6 +37,7 @@ public class detailRiwayat extends AppCompatActivity {
         if (bundle != null){
 
 //            tvNama.setText(bundle.getString("namambbil"));
+            tvhp.setText(bundle.getString("NoHp"));
             tvTujuan.setText(bundle.getString("tujuan"));
             tvTotal.setText(bundle.getString("total"));
             tvTanggal.setText(bundle.getString("tanggalpinjam"));
@@ -49,6 +51,7 @@ public class detailRiwayat extends AppCompatActivity {
             db.collection("Booking").document(bundle.getString("uid")).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    tvhp.setText(documentSnapshot.get("NoHp").toString());
                     tvHari.setText(documentSnapshot.get("JumlahHari").toString());
                     tvTanggal.setText(documentSnapshot.get("TanggalPinjam").toString());
                     tvTujuan.setText(documentSnapshot.get("Tujuan").toString());

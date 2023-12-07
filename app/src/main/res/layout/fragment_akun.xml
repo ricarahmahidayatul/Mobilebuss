@@ -166,14 +166,15 @@
                     android:id="@+id/ubah"
                     android:layout_width="224dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="60dp"
+                    android:layout_above="@+id/view2"
+                    android:layout_marginStart="10dp"
                     android:layout_marginLeft="60dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginBottom="545dp"
-                    android:text="Ubah Data Akun" />
+                    android:layout_marginBottom="-80dp"
+                    android:layout_toEndOf="@+id/akun"
+                    android:text=" Data Akun" />
 
                 <View
+                    android:id="@+id/view2"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="100dp"
