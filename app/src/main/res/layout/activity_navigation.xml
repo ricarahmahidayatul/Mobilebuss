@@ -23,11 +23,11 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/konten"
-        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomnavigasii"
-        android:layout_marginTop="60dp"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@color/white"
         android:theme="@style/Theme.MaterialComponents"
         android:visibility="visible"
         tools:ignore="DuplicateIds,UnknownId">

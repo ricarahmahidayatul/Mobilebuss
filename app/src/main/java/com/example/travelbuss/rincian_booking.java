@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -30,7 +31,9 @@ import com.midtrans.sdk.corekit.models.snap.CreditCard;
 import com.midtrans.sdk.corekit.models.snap.TransactionResult;
 import com.midtrans.sdk.uikit.SdkUIFlowBuilder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class rincian_booking extends AppCompatActivity implements TransactionFinishedCallback {
 
@@ -93,6 +96,7 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
             }
 
         });
+
 
 
 //        cobaBayar.setOnClickListener(view -> {
@@ -167,15 +171,17 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
 //                    }
 //                });
 //            }
-//
+//bookingUid
 //        });
 
-        DocumentReference dbReff = db.collection("Booking").document(Auth.getCurrentUser().getUid());
+        DocumentReference dbReff = db.collection("Booking").document(bookingUid);
                 dbReff.get().addOnSuccessListener(documentSnapshot -> {
 
                     String Tuju = documentSnapshot.getString("Tujuan");
-                    String TglP = documentSnapshot.getString("TanggalPinjam");
-                    String TglK = documentSnapshot.getString("TanggalKembali");
+
+
+                    Timestamp TglP = documentSnapshot.getTimestamp("TanggalPinjam");
+                    Timestamp TglK = documentSnapshot.getTimestamp("TanggalKembali");
                     String Mob = documentSnapshot.getString("NamaMobil");
                     String Nma = documentSnapshot.getString("NamaPenyewa");
 //                String ttl =documentSnapshot.getString("JumlahHari");
@@ -188,10 +194,11 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
                     Log.d("dataprofile", "Namapenyewa" + Nma);
 
 //                Log.d("dataprofile", "total" +ttl);
-
+                    tglpnjm.setText(formatFirestoreTimestamp(TglP));
+                    tglkmbli.setText(formatFirestoreTimestamp(TglK));
                     tujuan.setText(Tuju);
-                    tglpnjm.setText(TglP);
-                    tglkmbli.setText(TglK);
+//                    tglpnjm.setText(TglP);
+
                     mobil.setText(Mob);
                     nama.setText(Nma);
 //                total.setText(ttl);
@@ -242,6 +249,8 @@ makePayment();
                 .buildSDK();
     }
 
+
+
     @Override
     public void onTransactionFinished(TransactionResult result) {
         if (result.getResponse() != null) {
@@ -277,6 +286,17 @@ makePayment();
 
 
     }
+
+
+    public static String formatFirestoreTimestamp(Timestamp firestoreTimestamp) {
+        // Convert Firestore timestamp to Java Date object
+        Date dateObject = firestoreTimestamp.toDate();
+
+        // Format the date to "dd-MMMM-yyyy"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        return dateFormat.format(dateObject);
+    }
+
 
 
 

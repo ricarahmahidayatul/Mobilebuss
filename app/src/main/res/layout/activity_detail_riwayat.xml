@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".detailRiwayat">
 
     <TextView
@@ -13,18 +14,18 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="633dp"
         android:gravity="center"
         android:text="Rincian Booking"
         android:textSize="25dp"
         android:textStyle="bold" />
 
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
 
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="583dp"
         android:text="Nama Penyewa"
@@ -33,15 +34,14 @@
 
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
         android:id="@+id/Namabose"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-589dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="528dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Nama Penyewa"
         android:inputType="text"
         android:textSize="20dp"
@@ -49,9 +49,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="165dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="483dp"
         android:text="Mobil"
@@ -59,25 +59,24 @@
         android:textStyle="italic" />
 
     <EditText
-        android:focusable="false"
-        android:clickable="false"
         android:id="@+id/mobil"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-480dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="428dp"
-        android:hint="Tanggal"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="Mobil"
         android:inputType="date"
         android:textSize="20dp"
         android:textStyle="italic" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="260dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="388dp"
         android:text="Tanggal Pinjam"
@@ -86,44 +85,42 @@
 
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
         android:id="@+id/tanggalpinjam"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="290dp"
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-390dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="338dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Tanggal"
         android:inputType="date"
         android:textSize="20dp"
         android:textStyle="italic" />
 
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="350dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-335dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"
         android:text="Tanggal Kembali"
         android:textSize="20dp"
         android:textStyle="italic" />
 
-
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
         android:id="@+id/tanggalkembali"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="380dp"
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="248dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Tanggal"
         android:inputType="text"
         android:textSize="20dp"
@@ -132,9 +129,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="440dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
         android:text="Total Hari"
@@ -142,16 +139,16 @@
         android:textStyle="italic" />
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
-
         android:id="@+id/Totalhari"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="470dp"
+
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-210dp"
         android:layout_marginEnd="50dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Total Hari"
         android:inputType="text"
         android:textSize="20dp"
@@ -159,9 +156,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="530dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
         android:text="Penjempuatan"
@@ -169,25 +166,25 @@
         android:textStyle="italic" />
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
         android:id="@+id/penjemputan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="555dp"
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-210dp"
         android:layout_marginEnd="50dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Jemput"
         android:inputType="text"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="615dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
         android:text="Tujuan"
@@ -195,25 +192,25 @@
         android:textStyle="italic" />
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
         android:id="@+id/tujuan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="640dp"
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-210dp"
         android:layout_marginEnd="50dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Jemput"
         android:inputType="text"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="700dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
         android:text="Total"
@@ -221,26 +218,26 @@
         android:textStyle="italic" />
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
         android:id="@+id/total"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="730dp"
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-210dp"
         android:layout_marginEnd="50dp"
-        android:hint="Jemput"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="Total"
         android:inputType="text"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic" />
 
 
     <TextView
         android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="750dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="208dp"
         android:text="Nomor Hp"
@@ -248,21 +245,21 @@
         android:textStyle="italic" />
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-
         android:id="@+id/hape"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="770dp"
+
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-210dp"
         android:layout_marginEnd="50dp"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Hape"
         android:inputType="text"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic" />
 
-</RelativeLayout>
+</LinearLayout>
 
 
 

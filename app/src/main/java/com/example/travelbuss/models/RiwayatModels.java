@@ -1,11 +1,29 @@
 package com.example.travelbuss.models;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentId;
 
 public class RiwayatModels {
-    private String NamaMobil, Hari, Total;
+    public String getIDMobil() {
+        return IDMobil;
+    }
+
+    public void setIDMobil(String IDMobil) {
+        this.IDMobil = IDMobil;
+    }
+
+    private String IDMobil, Hari, Total;
     private String Tujuan;
-    private String TanggalPinjam;
+
+    public Timestamp getTanggalPinjam() {
+        return TanggalPinjam;
+    }
+
+    public void setTanggalPinjam(Timestamp tanggalPinjam) {
+        TanggalPinjam = tanggalPinjam;
+    }
+
+    private Timestamp TanggalPinjam;
 
     public String getDocumentId() {
         return documentId;
@@ -16,31 +34,18 @@ public class RiwayatModels {
 
     public RiwayatModels() {
         this.documentId = null;
-        this.TanggalPinjam = "";
-        this.NamaMobil = "";
+        this.IDMobil = "";
         this.Tujuan="";
     }
 
-    public String getNamaMobil() {
-        return NamaMobil;
-    }
 
-    public void setNamaMobil(String NamaMobil) { this.NamaMobil= NamaMobil;
-    }
+
+
 
     public String getTujuan() {return Tujuan;}
 
     public void setTujuan(String Tujuan) {
         this.Tujuan = Tujuan;
-    }
-
-
-    public String getTanggalPinjam() {
-        return TanggalPinjam;
-    }
-
-    public void setTanggalPinjam(String tanggalPinjam) {
-        this.TanggalPinjam = tanggalPinjam;
     }
 
     public String getHari() {

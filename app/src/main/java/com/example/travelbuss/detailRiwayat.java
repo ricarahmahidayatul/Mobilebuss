@@ -7,8 +7,12 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class detailRiwayat extends AppCompatActivity {
     EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal, tvPenyewa, tvTKembali, tvPenjemputan, tvhp;
@@ -40,10 +44,10 @@ public class detailRiwayat extends AppCompatActivity {
             tvhp.setText(bundle.getString("NoHp"));
             tvTujuan.setText(bundle.getString("tujuan"));
             tvTotal.setText(bundle.getString("total"));
-            tvTanggal.setText(bundle.getString("tanggalpinjam"));
+//            tvTanggal.setText(bundle.getString("tanggalpinjam"));
             tvHari .setText(bundle.getString("hari"));
             tvPenyewa .setText(bundle.getString("namapenyewa"));
-            tvTKembali .setText(bundle.getString("tanggalkembali"));
+//            tvTKembali .setText(bundle.getString("tanggalkembali"));
             tvPenjemputan .setText(bundle.getString("penjemputan"));
 
 
@@ -53,10 +57,10 @@ public class detailRiwayat extends AppCompatActivity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     tvhp.setText(documentSnapshot.get("NoHp").toString());
                     tvHari.setText(documentSnapshot.get("JumlahHari").toString());
-                    tvTanggal.setText(documentSnapshot.get("TanggalPinjam").toString());
+                    tvTanggal.setText(formatFirestoreTimestamp(documentSnapshot.getTimestamp("TanggalPinjam")));
                     tvTujuan.setText(documentSnapshot.get("Tujuan").toString());
                     tvPenjemputan.setText(documentSnapshot.get("Penjemputan").toString());
-                    tvTKembali.setText(documentSnapshot.get("TanggalKembali").toString());
+                    tvTKembali.setText(formatFirestoreTimestamp(documentSnapshot.getTimestamp("TanggalKembali")));
                     tvPenyewa.setText(documentSnapshot.get("NamaPenyewa").toString());
                     tvTotal.setText(documentSnapshot.get("Total").toString());
 
@@ -72,5 +76,14 @@ public class detailRiwayat extends AppCompatActivity {
 
 
         }
+    }
+
+    public static String formatFirestoreTimestamp(Timestamp firestoreTimestamp) {
+        // Convert Firestore timestamp to Java Date object
+        Date dateObject = firestoreTimestamp.toDate();
+
+        // Format the date to "dd-MMMM-yyyy"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        return dateFormat.format(dateObject);
     }
 }

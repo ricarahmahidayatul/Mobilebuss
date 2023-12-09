@@ -17,7 +17,14 @@ import com.example.travelbuss.detailRiwayat;
 import com.example.travelbuss.models.RiwayatModels;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, AdapterRiwayat.ViewHolder> {
     Context context;
@@ -25,13 +32,19 @@ public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, Adap
     @Override
 
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull RiwayatModels model) {
-        Log.d("Bind", "onBindViewHolder: " + "namamobil" +model.getNamaMobil() + "tujuan" +model.getTujuan() +"pinjam" + model.getTanggalPinjam());
+        Log.d("Bind", "onBindViewHolder: " + "namamobil" +model.getIDMobil() + "tujuan" +model.getTujuan() +"pinjam" + model.getTanggalPinjam());
 
 
+        holder.db.collection("Data_Mobil").document(model.getIDMobil()).get()
+                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                holder.namamobil.setText(task.getResult().getString("Nama"));
+                            }
+                        });
 
-        holder.namamobil.setText(model.getNamaMobil());
         holder.tuju.setText(model.getTujuan());
-        holder.pinjam.setText(model.getTanggalPinjam());
+        holder.pinjam.setText(formatFirestoreTimestamp(model.getTanggalPinjam()));
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 //        db.collection("Data_Mobil").document(model.getDocument("IDMobil").toString()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
 //            @Override
@@ -73,12 +86,24 @@ public class AdapterRiwayat extends FirestoreRecyclerAdapter<RiwayatModels, Adap
         public TextView namamobil, tuju, pinjam;
         RelativeLayout inti;
 
+        FirebaseFirestore db;
+
         public ViewHolder(View itemView) {
             super(itemView);
             namamobil = itemView.findViewById(R.id.namamobil);
             tuju = itemView.findViewById(R.id.tuju);
             pinjam = itemView.findViewById(R.id.pinjam);
             inti = itemView.findViewById(R.id.intinyainti);
+            db = FirebaseFirestore.getInstance();
         }
+    }
+
+    public static String formatFirestoreTimestamp(Timestamp firestoreTimestamp) {
+        // Convert Firestore timestamp to Java Date object
+        Date dateObject = firestoreTimestamp.toDate();
+
+        // Format the date to "dd-MMMM-yyyy"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        return dateFormat.format(dateObject);
     }
 }

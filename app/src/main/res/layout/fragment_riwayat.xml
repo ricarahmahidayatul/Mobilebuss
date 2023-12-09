@@ -11,32 +11,34 @@
         android:id="@+id/isi"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:background="@drawable/rounded_bgputih"
         app:layout_constraintTop_toTopOf="parent">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Transaksi"
-        android:gravity="center"
-        android:textSize="17dp">
-    </TextView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/viewriwayat"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="Transaksi"
+                    android:textSize="17dp"></TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/viewriwayat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
 
-    </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
