@@ -97,7 +97,7 @@ private FirebaseAuth mAuth;
                                 editPassword.setText("");
                                 nohp.setText("");
                                 alamat.setText("");
-                                nama.setText("");
+                                nama= null;
                                 if (task.isSuccessful()){
                                     Intent Intent=new Intent(Register.this, LoginActivity.class);
                                     startActivity(Intent);

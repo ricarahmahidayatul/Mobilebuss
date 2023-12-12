@@ -29,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="25dp"
@@ -69,11 +70,12 @@
             android:id="@+id/edittAlamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textView7"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="70dp"
             android:ems="10"
             android:focusable="false"
@@ -86,11 +88,12 @@
             android:id="@+id/editNoHp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textView8"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="310dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="70dp"
             android:ems="10"
             android:focusable="false"
@@ -99,8 +102,33 @@
             android:minHeight="48dp"
             android:text="hape" />
 
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="67dp"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_marginEnd="70dp"
+            android:text="Alamat" />
 
-
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edittAlamat"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="70dp"
+            android:text="Nomor Hp"
+            android:textAlignment="center"
+            android:textSize="18dp" />
 
 
     </RelativeLayout>

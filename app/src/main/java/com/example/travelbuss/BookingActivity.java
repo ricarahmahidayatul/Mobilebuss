@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -36,6 +37,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -170,10 +173,10 @@ public class BookingActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
                 //Showing the picked value in the textView
-                editTanggalpinjam.setText(String.valueOf(year)+ "-"+String.valueOf(month + 1)+ "-"+String.valueOf( day));
+                editTanggalpinjam.setText(String.valueOf(year)+ "-"+String.valueOf(month +1)+ "-"+String.valueOf( day));
 
             }
-        }, 2023, 00, 12);
+        }, 2024, 00, 1);
 //
 
         datePickerDialog.show();
@@ -190,7 +193,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
             }
-        },2023, 00, 12);
+        },2024, 00, 2);
 //                new SimpleDateFormat("yyyy-MM-dd"));
 
         datePickerDialog.show();
@@ -231,22 +234,22 @@ public class BookingActivity extends AppCompatActivity {
     }
 
 
-    private void getDataSpin(){
+    private void getDataSpin() {
         progressDialog.show();
         db.collection("Data_Mobil").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 progressDialog.show();
                 mobiles = queryDocumentSnapshots;
-                if (queryDocumentSnapshots.size()>0){
+                if (queryDocumentSnapshots.size() > 0) {
                     arrayMobil.clear();
-                    for (DocumentSnapshot doc : queryDocumentSnapshots){
+                    for (DocumentSnapshot doc : queryDocumentSnapshots) {
                         arrayMobil.add(doc.getString("Nama"));
 
                     }
                     adapter.notifyDataSetChanged();
                     progressDialog.dismiss();
-                }else{
+                } else {
                     Toast.makeText(getApplicationContext(), "data tidak ada", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 }
@@ -259,58 +262,6 @@ public class BookingActivity extends AppCompatActivity {
 
                 progressDialog.dismiss();
 
-            }
-        });
-
-
-        btnsimpan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-
-
-//                IDMobil = mobiles.getDocuments().get(i).getId();
-
-                String Spin = spinerr.getSelectedItem().toString().trim();
-//                String sp = String.valueOf(Spin == IDMobil);
-                Date cektanggalPeminjaman,cektanggalPengembalian;
-                String tglPinjam = editTanggalpinjam.getText().toString().trim();
-                String tglKembali = editTanggalkembali.getText().toString().trim();
-
-                try {
-                    cektanggalPeminjaman = formatter.parse(tglPinjam);
-                    cektanggalPengembalian = formatter.parse(tglKembali);
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
-                }
-
-                db.collection("Booking").whereEqualTo("IDMobil",IDMobil).whereGreaterThanOrEqualTo("TanggalPinjam",cektanggalPeminjaman)
-                        .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                int jumlahHari = 0;
-                                if (!task.getResult().isEmpty()){
-                                    Date tanggalPengembalianDatabase = new Date();
-                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                                   tanggalPengembalianDatabase =  document.getDate("TanggalKembali");
-                                                    Log.d("TAG", "Document Id: " + document.get("JumlahHari").toString());
-                                                    jumlahHari = Integer.parseInt(document.get("JumlahHari").toString());
-                                                }
-                                    Log.d("TambahTanggal", "onComplete: " + addDays(cektanggalPeminjaman,jumlahHari-1));
-                                    if (isMoreThanDays(cektanggalPeminjaman,tanggalPengembalianDatabase,jumlahHari-1)){
-                                        Toast.makeText(BookingActivity.this, "Benar", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        Toast.makeText(BookingActivity.this, "data ada", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(BookingActivity.this, "Data Tidak Ada", Toast.LENGTH_SHORT).show();
-                            }
-                        });
             }
         });
 
@@ -335,128 +286,146 @@ public class BookingActivity extends AppCompatActivity {
 //                } catch (ParseException e) {
 //                    throw new RuntimeException(e);
 //                }
-//                                // Check if the email exists in the "Adminn" collection
-//                db.collection("Booking")
-//                        .whereEqualTo("IDMobil", IDMobil)
-//                        .whereGreaterThanOrEqualTo("TanggalPinjam", tglPinjam)
-//                        .whereGreaterThanOrEqualTo("TanggalKembali", tglKembali)
-//                        .get()
-//                        .addOnCompleteListener(task -> {
-//                            if (!task.getResult().isEmpty()) {
 //
-//
-////                                            db.collection("Booking")
-////                                                    .whereEqualTo()
-//                                Toast.makeText(getApplicationContext(), "Mobil Tidak Tersedia Pada Tanggal Tersebut", Toast.LENGTH_SHORT).show();
-//
-//
-//                                // Email exists in the "Adminn" collection, proceed with login
-//
-//
-//                            } else {
-//                                // Email does not exist in the "Adminn" collection
-//
-//
-//
-//                                String penjemputan = editPenjemputan.getText().toString().trim();
-//                                String tujuan = editTujuan.getText().toString().trim();
-//                                String tglpinjam = editTanggalpinjam.getText().toString().trim();
-//                                String tglkembali = editTanggalkembali.getText().toString().trim();
-//                                String mobil = spinerr.getSelectedItem().toString();
-//                                String nama = editnama.getText().toString().trim();
-//                                String nohp = Hp;
-//
-//
-//                                Date tanggalPeminjaman,tanggalPengembalian;
-//                                try {
-//                                    tanggalPeminjaman = formatter.parse(tglpinjam);
-//                                    tanggalPengembalian = formatter.parse(tglkembali);
-//                                } catch (ParseException e) {
-//                                    throw new RuntimeException(e);
-//                                }
-//
-//
-////                String mobilhr = spinerr.getSelectedItem().toString();
-//
-//                                Log.d("onClick", "onClick: idMobil" + IDMobil);
-//                                if (penjemputan.isEmpty()) {
-//                                    editPenjemputan.setError("penjemputan tidak boleh kosong");
-//                                } else if (tujuan.isEmpty()) {
-//                                    editTujuan.setError("tujuan tidak boleh kosong");
-//                                } else if (tglpinjam.isEmpty()) {
-//                                    editTanggalpinjam.setError("pilih tanggal pinjam");
-//                                } else if (tglkembali.isEmpty()) {
-//                                    editTanggalkembali.setError("pilih tanggal pinjam");
-//                                } else if (mobil.isEmpty()) {
-//                                    editnamamobil.setError("pilih mobil yang diinginkan");
-//                                } else if (nama.isEmpty()) {
-//                                    editnama.setError("masukan nama");
-//                                } else {
-//
-//                                    long hari = calculateTotalDays();
-//                                    if (hari <= 0) {
-//                                        // Show an error message when total days is less than or equal to 0
-//                                        Toast.makeText(getApplicationContext(), "Kesalaahn dalam memilih tanggal", Toast.LENGTH_SHORT).show();
-//                                    } else {
-//                                        // Continue with saving the data
-//                                        // ... (existing code)
-//                                        Map<String, Object> user = new HashMap<>();
-////                        long hari = calculateTotalDays();
-//
-//                                        user.put("Penjemputan", penjemputan);
-//                                        user.put("Tujuan", tujuan);
-//                                        user.put("TanggalPinjam", tanggalPeminjaman);
-//                                        user.put("TanggalKembali", tanggalPengembalian);
-//                                        user.put("IDMobil", IDMobil);
-//                                        user.put("NamaPenyewa", nama);
-//                                        user.put("JumlahHari", hari);
-//                                        user.put("UID", mAuth.getCurrentUser().getUid());
-//                                        user.put("NoHp", nohp);
-//
-//
-//
-//                                        CollectionReference dbReff = db.collection("Booking");
-//
-//
-//                                        dbReff.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                                            @Override
-//                                            public void onSuccess(DocumentReference documentReference) {
-//                                                Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
-//                                                intent.putExtra("Tujuan", tujuan);
-//                                                intent.putExtra("TanggalPinjam", tglpinjam);
-//                                                intent.putExtra("TanggalKembali", tglkembali);
-//                                                intent.putExtra("IDMobil", IDMobil);
-//                                                intent.putExtra("NamaPenyewa", nama);
-//                                                intent.putExtra("JumlahHari", hari);
-//                                                intent.putExtra("UID", mAuth.getCurrentUser().getUid());
-//                                                intent.putExtra("NoHp", nohp);
-//                                                intent.putExtra("DocumentID", documentReference.getId());
-//
-//
-//                                                startActivity(intent);
-//                                            }
-//                                        });
-//
-//
-//                                        db.collection("Data_Mobil").whereEqualTo("Nama", spinerr.getSelectedItem().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                                            @Override
-//                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                                for (QueryDocumentSnapshot document : task.getResult()) {
-//                                                    Log.d("TAG", "Document Id: " + document.getId());
+//                db.collection("Booking").whereEqualTo("IDMobil",IDMobil).whereGreaterThanOrEqualTo("TanggalPinjam",cektanggalPeminjaman)
+//                        .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                int jumlahHari = 0;
+//                                if (!task.getResult().isEmpty()){
+//                                    Date tanggalPengembalianDatabase = new Date();
+//                                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                                                   tanggalPengembalianDatabase =  document.getDate("TanggalKembali");
+//                                                    Log.d("TAG", "Document Id: " + document.get("JumlahHari").toString());
+//                                                    jumlahHari = Integer.parseInt(document.get("JumlahHari").toString());
 //                                                }
-//                                            }
-//                                        });
-//
+//                                    Log.d("TambahTanggal", "onComplete: " + addDays(cektanggalPeminjaman,jumlahHari-1));
+//                                    if (isMoreThanDays(cektanggalPeminjaman,tanggalPengembalianDatabase,jumlahHari-1)){
+//                                        Toast.makeText(BookingActivity.this, "Benar", Toast.LENGTH_SHORT).show();
+//                                    }else{
+//                                        Toast.makeText(BookingActivity.this, "data ada", Toast.LENGTH_SHORT).show();
 //                                    }
 //                                }
 //
-//
+//                            }
+//                        }).addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Toast.makeText(BookingActivity.this, "Data Tidak Ada", Toast.LENGTH_SHORT).show();
 //                            }
 //                        });
-////                                });
-//
 //            }
 //        });
+
+
+        btnsimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+
+//                IDMobil = mobiles.getDocuments().get(i).getId();
+
+                String Spin = spinerr.getSelectedItem().toString().trim();
+//                String sp = String.valueOf(Spin == IDMobil);
+                Date cektanggalPeminjaman, cektanggalPengembalian;
+                String tglPinjam = editTanggalpinjam.getText().toString().trim();
+                String tglKembali = editTanggalkembali.getText().toString().trim();
+
+                try {
+                    cektanggalPeminjaman = formatter.parse(tglPinjam);
+                    cektanggalPengembalian = formatter.parse(tglKembali);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+                // Check if the email exists in the "Adminn" collection
+                db.collection("Booking")
+                        .whereEqualTo("IDMobil", IDMobil)
+                        .whereGreaterThanOrEqualTo("TanggalPinjam", cektanggalPeminjaman)
+                        .get()
+                        .addOnCompleteListener(task -> {
+                            if (!task.getResult().isEmpty()) {
+
+
+//                                            db.collection("Booking")
+//                                                    .whereEqualTo()
+                                Toast.makeText(getApplicationContext(), "mobil tidak tersedia", Toast.LENGTH_SHORT).show();
+
+
+                                // Email exists in the "Adminn" collection, proceed with login
+
+
+                            } else {
+
+                                // Email does not exist in the "Adminn" collection
+                                penyimpanandata();
+                                Toast.makeText(getApplicationContext(), "mobil tersedia" , Toast.LENGTH_SHORT).show();
+
+
+                            }
+                                        });
+                            }
+                        });
+
+            }
+
+//     btnsimpan.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//
+//
+////                IDMobil = mobiles.getDocuments().get(i).getId();
+//
+//            String Spin = spinerr.getSelectedItem().toString().trim();
+////                String sp = String.valueOf(Spin == IDMobil);
+//            Date cektanggalPeminjaman, cektanggalPengembalian;
+//            String tglPinjam = editTanggalpinjam.getText().toString().trim();
+//            String tglKembali = editTanggalkembali.getText().toString().trim();
+//
+//            try {
+//                cektanggalPeminjaman = formatter.parse(tglPinjam);
+//                cektanggalPengembalian = formatter.parse(tglKembali);
+//            } catch (ParseException e) {
+//                throw new RuntimeException(e);
+//            }
+//            // Check if the email exists in the "Adminn" collection
+//            db.collection("Booking")
+//                    .whereEqualTo("IDMobil", IDMobil)
+//                    .whereGreaterThanOrEqualTo("TanggalPinjam", cektanggalPeminjaman)
+//                    .whereGreaterThanOrEqualTo("TanggalKembali", cektanggalPengembalian)
+//                    .get()
+//                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//
+//
+//
+//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                            if (task.isSuccessful()) {
+//                                boolean isCarAvailable = task.getResult().isEmpty();
+//
+//                                if (isCarAvailable) {
+//                                    // The car is available for booking, proceed with saving data
+//                                    Toast.makeText(getApplicationContext(), "Mobil tidak tersedia pada tanggal tersebut", Toast.LENGTH_SHORT).show();
+//                                } else {
+//                                    // The car is already booked for the specified dates
+//                                    penyimpanandata();
+//                                }
+//                            } else {
+//                                // Handle errors
+//                                Toast.makeText(getApplicationContext(), "Error checking car availability", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//
+//
+//                        }
+//                    });
+//
+//        }
+//    });
+//}
+
+
+
 
 //        btnsimpan.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -547,8 +516,113 @@ public class BookingActivity extends AppCompatActivity {
 
 
 
+
+
+    private void penyimpanandata(){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        String penjemputan = editPenjemputan.getText().toString().trim();
+        String tujuan = editTujuan.getText().toString().trim();
+        String tglpinjam = editTanggalpinjam.getText().toString().trim();
+        String tglkembali = editTanggalkembali.getText().toString().trim();
+        String mobil = spinerr.getSelectedItem().toString();
+        String nama = editnama.getText().toString().trim();
+        String nohp = Hp;
+
+
+
+
+
+
+        Date tanggalPeminjaman, tanggalPengembalian;
+        try {
+            tanggalPeminjaman = formatter.parse(tglpinjam);
+            tanggalPengembalian = formatter.parse(tglkembali);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+
+//                String mobilhr = spinerr.getSelectedItem().toString();
+
+        Log.d("onClick", "onClick: idMobil" + IDMobil);
+        if (penjemputan.isEmpty()) {
+            editPenjemputan.setError("penjemputan tidak boleh kosong");
+        } else if (tujuan.isEmpty()) {
+            editTujuan.setError("tujuan tidak boleh kosong");
+        } else if (tglpinjam.isEmpty()) {
+            editTanggalpinjam.setError("pilih tanggal pinjam");
+        } else if (tglkembali.isEmpty()) {
+            editTanggalkembali.setError("pilih tanggal pinjam");
+        } else if (mobil.isEmpty()) {
+            editnamamobil.setError("pilih mobil yang diinginkan");
+        } else if (nama.isEmpty()) {
+            editnama.setError("masukan nama");
+        } else {
+
+            long hari = calculateTotalDays();
+            if (hari <= 0) {
+                // Show an error message when total days is less than or equal to 0
+                Toast.makeText(getApplicationContext(), "Kesalaahn dalam memilih tanggal", Toast.LENGTH_SHORT).show();
+            } else {
+                // Continue with saving the data
+                // ... (existing code)
+                Map<String, Object> user = new HashMap<>();
+//                        long hari = calculateTotalDays();
+
+                user.put("Penjemputan", penjemputan);
+                user.put("Tujuan", tujuan);
+                user.put("TanggalPinjam", tanggalPeminjaman);
+                user.put("TanggalKembali", tanggalPengembalian);
+                user.put("IDMobil", IDMobil);
+                user.put("NamaPenyewa", nama);
+                user.put("JumlahHari", hari);
+                user.put("UID", mAuth.getCurrentUser().getUid());
+                user.put("NoHp", nohp);
+
+
+                CollectionReference dbReff = db.collection("Booking");
+
+
+                dbReff.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
+                        intent.putExtra("Tujuan", tujuan);
+                        intent.putExtra("TanggalPinjam", tglpinjam);
+                        intent.putExtra("TanggalKembali", tglkembali);
+                        intent.putExtra("IDMobil", IDMobil);
+                        intent.putExtra("NamaPenyewa", nama);
+                        intent.putExtra("JumlahHari", hari);
+                        intent.putExtra("UID", mAuth.getCurrentUser().getUid());
+                        intent.putExtra("NoHp", nohp);
+                        intent.putExtra("DocumentID", documentReference.getId());
+
+
+                        startActivity(intent);
+                        finish();
+
+                    }
+                });
+
+
+                db.collection("Data_Mobil").whereEqualTo("Nama", spinerr.getSelectedItem().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Log.d("TAG", "Document Id: " + document.getId());
+                        }
+                    }
+                });
+
+            }
+        }
     }
 
+    private void clear(){
+
+    }
     public static Date addDays(Date date, int days) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);

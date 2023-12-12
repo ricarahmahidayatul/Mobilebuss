@@ -122,6 +122,7 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
                                 // Contoh: Menampilkan pesan sukses atau pindah ke halaman lain
 
                                 Toast.makeText(rincian_booking.this, "Total berhasil disimpan", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -245,7 +246,7 @@ makePayment();
                 .setTransactionFinishedCallback(this)
                 .enableLog(true)
                 .setLanguage("id")
-                .setColorTheme(new CustomColorTheme("#C9F2FF", "#000000", "#1C4A86"))
+                .setColorTheme(new CustomColorTheme("#00A3FF", "#000000", "#00A3FF"))
                 .buildSDK();
     }
 
@@ -256,7 +257,7 @@ makePayment();
         if (result.getResponse() != null) {
             switch (result.getStatus()) {
                 case TransactionResult.STATUS_SUCCESS:
-                    Toast.makeText(this, "Transaction Berhasiil Boli " + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Transaction Berhasiil  " + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, NavigationActivity.class);
                     startActivity(intent);
                     finish();

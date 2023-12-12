@@ -78,13 +78,13 @@ public class AkunFragment extends Fragment {
         tiga = view.findViewById(R.id.btnpusatbantuan);
         empat = view.findViewById(R.id.btnsyaratdnaketentuan);
         lima = view.findViewById(R.id.syarat);
+        papat = view.findViewById(R.id.ketentuan);
         enam = view.findViewById(R.id.pusat);
         tujuh = view.findViewById(R.id.mitra);
         delap = view.findViewById(R.id.akun);
         siji = view.findViewById(R.id.ubah);
         loro = view.findViewById(R.id.about);
         telu = view.findViewById(R.id.bantuan);
-        papat = view.findViewById(R.id.ketentuan);
         logout = view.findViewById(R.id.logout);
 
 
@@ -117,16 +117,16 @@ public class AkunFragment extends Fragment {
         empat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
-                startActivity(Intent);
+//                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+//                startActivity(Intent);
 
             }
         });
         lima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
-                startActivity(Intent);
+//                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+//                startActivity(Intent);
             }
         });
          enam.setOnClickListener(new View.OnClickListener() {
@@ -174,8 +174,8 @@ public class AkunFragment extends Fragment {
          papat.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                     Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
-                     startActivity(Intent);
+//                     Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+//                     startActivity(Intent);
              }
          });
          logout.setOnClickListener(new View.OnClickListener() {

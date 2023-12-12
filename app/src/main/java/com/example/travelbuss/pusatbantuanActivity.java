@@ -25,8 +25,19 @@ Button btnwaa;
             @Override
             public void onClick(View view) {
                 Intent watsap = new Intent(Intent.ACTION_VIEW);
-                watsap.setData(Uri.parse("https://wa.me/6281230072149?qr=1"));
+                watsap.setData(Uri.parse("https://wa.link/dpfl2r"));
+//                https://wa.me/6281230072149?qr=1
                 startActivity(watsap);
+
+//                String phoneNumber = "tel:+6285860516408 ";
+//                // Intent untuk memulai panggilan
+//                Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumber));
+//
+//                // Periksa apakah aplikasi Dialer tersedia sebelum memulai panggilan
+//                if (dialIntent.resolveActivity(getPackageManager()) != null) {
+//                    startActivity(dialIntent);
+//                }
+
             }
         });
 
