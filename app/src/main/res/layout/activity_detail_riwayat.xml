@@ -1,265 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a0p="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".detailRiwayat">
 
-    <TextView
-
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="0dp"
-        android:gravity="center"
-        android:text="Rincian Booking"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="583dp"
-        android:text="Nama Penyewa"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+        <TextView
 
-
-    <EditText
-        android:id="@+id/Namabose"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-589dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Nama Penyewa"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="483dp"
-        android:text="Mobil"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/mobil"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-480dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Mobil"
-        android:inputType="date"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="388dp"
-        android:text="Tanggal Pinjam"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="0dp"
+            android:gravity="center"
+            android:text="Rincian Booking"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
 
-    <EditText
-        android:id="@+id/tanggalpinjam"
-        android:layout_width="match_parent"
-
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-390dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="338dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Tanggal"
-        android:inputType="date"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="0dp"
+            android:text="Nama Penyewa"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-335dp"
-        android:layout_marginEnd="0dp"
-        android:text="Tanggal Kembali"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+        <EditText
+            android:id="@+id/Namabose"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Nama Penyewa"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
-    <EditText
-        android:id="@+id/tanggalkembali"
-        android:layout_width="match_parent"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="10dp"
+            android:text="Mobil"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Tanggal"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+        <EditText
+            android:id="@+id/mobil"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Mobil"
+            android:inputType="date"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"
-        android:text="Total Hari"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/Totalhari"
-        android:layout_width="match_parent"
-
-
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-210dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Total Hari"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"
-        android:text="Penjempuatan"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/penjemputan"
-        android:layout_width="match_parent"
-
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-210dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Jemput"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"
-        android:text="Tujuan"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/tujuan"
-        android:layout_width="match_parent"
-
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-210dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Jemput"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"
-        android:text="Total"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/total"
-        android:layout_width="match_parent"
-
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-210dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Total"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="10dp"
+            android:text="Tanggal Pinjam"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
 
-    <TextView
-        android:layout_width="140dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="208dp"
-        android:text="Nomor Hp"
-        android:textSize="20dp"
-        android:textStyle="italic" />
+        <EditText
+            android:id="@+id/tanggalpinjam"
+            android:layout_width="match_parent"
 
-    <EditText
-        android:id="@+id/hape"
-        android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Tanggal"
+            android:inputType="date"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-210dp"
-        android:layout_marginEnd="50dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="Hape"
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textStyle="italic" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="Tanggal Kembali"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/tanggalkembali"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Tanggal"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+
+            android:text="Total Hari"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/Totalhari"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Total Hari"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="Penjempuatan"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/penjemputan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Jemput"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="Tujuan"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/tujuan"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Jemput"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="Total"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Total"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="Nomor Hp"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/hape"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="Hape"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:text="Jam Berangkat"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/jamBerangkat"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="jamberangkat"
+            android:inputType="text"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
 
 
 

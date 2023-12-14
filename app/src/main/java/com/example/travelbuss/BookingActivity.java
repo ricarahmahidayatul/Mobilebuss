@@ -3,6 +3,7 @@ package com.example.travelbuss;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -48,6 +51,8 @@ public class BookingActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     private Button btnsimpan;
+
+    TextView jam;
 
     String IDMobil;
 
@@ -60,6 +65,7 @@ public class BookingActivity extends AppCompatActivity {
     private QuerySnapshot mobiles;
     private ProgressDialog progressDialog;
     String Hp;
+    int hour, minute;
     private long totalHari, hri;
 
 
@@ -72,6 +78,7 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
         mAuth = FirebaseAuth.getInstance();
 
+       jam = findViewById(R.id.pilihjam);
         spinerr = findViewById(R.id.spinnerlist);
         editnama= findViewById(R.id.txtNama);
         editPenjemputan = findViewById(R.id.txtPenjemputan);
@@ -123,11 +130,19 @@ public class BookingActivity extends AppCompatActivity {
 
 
 
+        jam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+pilihjam();
+
+            }
+        });
         balek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent inten = new Intent(BookingActivity.this, NavigationActivity.class);
                 startActivity(inten);
+                finish();
             }
         });
         editTanggalkembali.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +168,7 @@ public class BookingActivity extends AppCompatActivity {
         spinerr.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "" +adapter.getItem(i), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "" +adapter.getItem(i), Toast.LENGTH_SHORT).show();
                 IDMobil = mobiles.getDocuments().get(i).getId();
                 Log.e("ID Nama_Mobil", mobiles.getDocuments().get(i).getId());
             }
@@ -167,6 +182,19 @@ public class BookingActivity extends AppCompatActivity {
 
     }
 
+    private void pilihjam(){
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                hour = selectedHour;
+                minute = selectedMinute;
+                jam.setText(String.format(Locale.getDefault(),"%02d:%02d",hour, minute));
+            }
+        };
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
+        timePickerDialog.setTitle("Select time");
+        timePickerDialog.show();
+    }
     private void openDatePicker1(){
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -349,17 +377,19 @@ public class BookingActivity extends AppCompatActivity {
 
 //                                            db.collection("Booking")
 //                                                    .whereEqualTo()
-                                Toast.makeText(getApplicationContext(), "mobil tidak tersedia", Toast.LENGTH_SHORT).show();
+//penyimpanandata();
+                                Toast.makeText(getApplicationContext(), "mobil tidak tersedia" , Toast.LENGTH_SHORT).show();
 
 
                                 // Email exists in the "Adminn" collection, proceed with login
 
 
                             } else {
+                                penyimpanandata();
+                                Toast.makeText(getApplicationContext(), "mobil  tersedia", Toast.LENGTH_SHORT).show();
+
 
                                 // Email does not exist in the "Adminn" collection
-                                penyimpanandata();
-                                Toast.makeText(getApplicationContext(), "mobil tersedia" , Toast.LENGTH_SHORT).show();
 
 
                             }
@@ -522,6 +552,8 @@ public class BookingActivity extends AppCompatActivity {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
+
+        String jamberangkat = jam.getText().toString().trim();
         String penjemputan = editPenjemputan.getText().toString().trim();
         String tujuan = editTujuan.getText().toString().trim();
         String tglpinjam = editTanggalpinjam.getText().toString().trim();
@@ -571,6 +603,7 @@ public class BookingActivity extends AppCompatActivity {
                 Map<String, Object> user = new HashMap<>();
 //                        long hari = calculateTotalDays();
 
+                user.put("JamBerangkat",jamberangkat);
                 user.put("Penjemputan", penjemputan);
                 user.put("Tujuan", tujuan);
                 user.put("TanggalPinjam", tanggalPeminjaman);
@@ -589,6 +622,7 @@ public class BookingActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Intent intent = new Intent(BookingActivity.this, rincian_booking.class);
+                        intent.putExtra("JamBerangkat", jamberangkat);
                         intent.putExtra("Tujuan", tujuan);
                         intent.putExtra("TanggalPinjam", tglpinjam);
                         intent.putExtra("TanggalKembali", tglkembali);

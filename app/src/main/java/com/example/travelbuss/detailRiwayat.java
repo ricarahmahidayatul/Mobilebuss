@@ -15,7 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class detailRiwayat extends AppCompatActivity {
-    EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal, tvPenyewa, tvTKembali, tvPenjemputan, tvhp;
+    EditText tvTujuan, tvNama, tvTanggal, tvHari, tvTotal, tvPenyewa, tvTKembali, tvPenjemputan, tvhp, tvjam;
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -27,6 +28,7 @@ public class detailRiwayat extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_detail_riwayat);
+        tvjam = findViewById(R.id.jamBerangkat);
         tvhp = findViewById(R.id.hape);
         tvNama = findViewById(R.id.mobil);
         tvTujuan = findViewById(R.id.tujuan);
@@ -41,6 +43,7 @@ public class detailRiwayat extends AppCompatActivity {
         if (bundle != null){
 
 //            tvNama.setText(bundle.getString("namambbil"));
+            tvjam.setText(bundle.getString("jam"));
             tvhp.setText(bundle.getString("NoHp"));
             tvTujuan.setText(bundle.getString("tujuan"));
             tvTotal.setText(bundle.getString("total"));
@@ -55,6 +58,7 @@ public class detailRiwayat extends AppCompatActivity {
             db.collection("Booking").document(bundle.getString("uid")).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    tvjam.setText(documentSnapshot.get("JamBerangkat").toString());
                     tvhp.setText(documentSnapshot.get("NoHp").toString());
                     tvHari.setText(documentSnapshot.get("JumlahHari").toString());
                     tvTanggal.setText(formatFirestoreTimestamp(documentSnapshot.getTimestamp("TanggalPinjam")));

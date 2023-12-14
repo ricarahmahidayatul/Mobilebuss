@@ -296,6 +296,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+
+                    <TextView
+                        android:id="@+id/pilihjam"
+                        android:layout_width="179dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textView2"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="149dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="Jam"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="179dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="150dp"
+                        android:hint="Jam Keberangkatan"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/black"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="118dp"
                         android:layout_height="38dp"
@@ -321,14 +348,14 @@
             <Button
                 android:id="@+id/btnpesan"
                 android:layout_width="194dp"
-                android:layout_height="58dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/birma"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:backgroundTint="@color/birmu"
                 android:minHeight="48dp"
                 android:text="Pesan"
                 android:textSize="20dp"
-                tools:ignore="TouchTargetSizeCheck"></Button>
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
     </RelativeLayout>

@@ -187,8 +187,6 @@ public class AkunFragment extends Fragment {
                  Intent intent = new Intent(view.getContext(), LoginActivity.class);
 
                  startActivity(intent);
-//                 getActivity().finish();
-
 
                  // Close current activity
                  getActivity().finish();

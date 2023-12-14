@@ -15,9 +15,7 @@ public class RiwayatModels {
     private String IDMobil, Hari, Total;
     private String Tujuan;
 
-    public Timestamp getTanggalPinjam() {
-        return TanggalPinjam;
-    }
+    public Timestamp getTanggalPinjam() {return TanggalPinjam;}
 
     public void setTanggalPinjam(Timestamp tanggalPinjam) {
         TanggalPinjam = tanggalPinjam;

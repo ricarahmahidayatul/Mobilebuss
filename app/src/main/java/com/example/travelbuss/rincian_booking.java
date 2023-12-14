@@ -267,13 +267,38 @@ makePayment();
 
                     break;
                 case TransactionResult.STATUS_FAILED:
-                    Toast.makeText(this, "Transaction Failed" + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Transaction Faileded" + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
 
                     break;
             }
             result.getResponse().getStatusMessage();
         } else if (result.isTransactionCanceled()) {
-            Toast.makeText(this, "Transaction Failed", Toast.LENGTH_LONG).show();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            String bookingUid = getIntent().getStringExtra("DocumentID");
+
+// Create a reference to the "Booking" document using the UID
+            DocumentReference bookingRef = db.collection("Booking").document(bookingUid);
+
+// Delete the document
+            bookingRef.delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Document successfully deleted
+                            Toast.makeText(rincian_booking.this, "GAGAL TRANSAKSI", Toast.LENGTH_SHORT).show();
+                            finish(); // Add any additional actions after successful deletion
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Handle any errors that occurred during the deletion
+                            Log.e("TAG", "Error deleting document", e);
+                            Toast.makeText(rincian_booking.this, "Error deleting booking", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+            Toast.makeText(this, "Transaction gagal", Toast.LENGTH_LONG).show();
 
         } else {
             if (result.getStatus().equals(TransactionResult.STATUS_INVALID)) {
@@ -301,6 +326,8 @@ makePayment();
 
 
 
+
+
     public TransactionRequest transactionRequest(String id, double price, int qty, String name) {
 
         double getTextfromtexttl = Double.parseDouble(total.getText().toString());
@@ -311,7 +338,7 @@ makePayment();
         ArrayList<ItemDetails> itemDetails = new ArrayList<>();
         itemDetails.add(details);
         request.setItemDetails(itemDetails);
-        request.setCustomerDetails(new CustomerDetails("Pembeli", "Laundry", auth.getCurrentUser().getEmail(), "08962342384"));
+        request.setCustomerDetails(new CustomerDetails("Customer", "MSJ Trans", auth.getCurrentUser().getEmail(), ""));
         CreditCard creditCard = new CreditCard();
         creditCard.setSaveCard(false);
         creditCard.setAuthentication(CreditCard.MIGS);

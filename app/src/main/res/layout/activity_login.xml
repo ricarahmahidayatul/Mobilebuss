@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@drawable/ic_gradasibgawal">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="199dp"
-        android:layout_marginBottom="672dp"
-        android:text="Hallo Friend!"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:id="@+id/logo"
@@ -29,11 +15,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="495dp"
         android:gravity="center"
         android:src="@drawable/logo" />
 
@@ -41,12 +25,12 @@
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="354dp"
         android:ems="13"
         android:gravity="center"
         android:hint="Email"
@@ -59,12 +43,12 @@
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Email"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="300dp"
         android:ems="13"
         android:gravity="center"
         android:hint="Password"
@@ -73,22 +57,17 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
-
-
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Login"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="575dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="134dp"
-        android:text="You don’t have account "
+        android:text="You don’t have an account"
         android:textAlignment="center"
         android:textColor="@color/item"
         android:textSize="15dp"
@@ -99,17 +78,15 @@
         android:id="@+id/Register"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="91dp"
-        android:layout_marginTop="607dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="91dp"
-        android:layout_marginBottom="73dp"
         android:text="Register"
-        android:textColor="@color/birma"
         android:textAlignment="center"
+        android:textColor="@color/birma"
         android:textColorHint="@color/birma"
         android:textSize="30dp"
         android:textStyle="bold" />
@@ -118,14 +95,13 @@
         android:id="@+id/Login"
         android:layout_width="141dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/Password"
+        android:layout_below="@+id/Password"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="118dp"
         android:backgroundTint="@color/birma"
         android:text="LOGIN" />
-
 
 </RelativeLayout>
