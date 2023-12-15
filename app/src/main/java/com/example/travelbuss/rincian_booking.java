@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,6 +62,17 @@ public class rincian_booking extends AppCompatActivity implements TransactionFin
 
 
         Auth = FirebaseAuth.getInstance();
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Log.d("MainActivity", "handleOnBackPressed");
+                deletketikagagal();
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -263,40 +275,19 @@ makePayment();
                     finish();
                     break;
                 case TransactionResult.STATUS_PENDING:
-                    Toast.makeText(this, "Transaction Pending " + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
+                    deletketikagagal();
+                    Toast.makeText(this, "Transaction gagal Pending " + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
 
                     break;
                 case TransactionResult.STATUS_FAILED:
+                    deletketikagagal();
                     Toast.makeText(this, "Transaction Faileded" + result.getResponse().getTransactionId(), Toast.LENGTH_LONG).show();
 
                     break;
             }
             result.getResponse().getStatusMessage();
         } else if (result.isTransactionCanceled()) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            String bookingUid = getIntent().getStringExtra("DocumentID");
-
-// Create a reference to the "Booking" document using the UID
-            DocumentReference bookingRef = db.collection("Booking").document(bookingUid);
-
-// Delete the document
-            bookingRef.delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            // Document successfully deleted
-                            Toast.makeText(rincian_booking.this, "GAGAL TRANSAKSI", Toast.LENGTH_SHORT).show();
-                            finish(); // Add any additional actions after successful deletion
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Handle any errors that occurred during the deletion
-                            Log.e("TAG", "Error deleting document", e);
-                            Toast.makeText(rincian_booking.this, "Error deleting booking", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            deletketikagagal();
 
             Toast.makeText(this, "Transaction gagal", Toast.LENGTH_LONG).show();
 
@@ -328,6 +319,33 @@ makePayment();
 
 
 
+    private void deletketikagagal(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String bookingUid = getIntent().getStringExtra("DocumentID");
+
+// Create a reference to the "Booking" document using the UID
+        DocumentReference bookingRef = db.collection("Booking").document(bookingUid);
+
+// Delete the document
+        bookingRef.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Document successfully deleted
+                        Toast.makeText(rincian_booking.this, "GAGAL TRANSAKSI", Toast.LENGTH_SHORT).show();
+                        finish(); // Add any additional actions after successful deletion
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle any errors that occurred during the deletion
+                        Log.e("TAG", "Error deleting document", e);
+                        Toast.makeText(rincian_booking.this, "Error deleting booking", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
     public TransactionRequest transactionRequest(String id, double price, int qty, String name) {
 
         double getTextfromtexttl = Double.parseDouble(total.getText().toString());
