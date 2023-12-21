@@ -97,13 +97,17 @@ private FirebaseAuth mAuth;
                                 editPassword.setText("");
                                 nohp.setText("");
                                 alamat.setText("");
-                                nama= null;
-                                if (task.isSuccessful()){
-                                    Intent Intent=new Intent(Register.this, LoginActivity.class);
+                                nama.setText("");
+                                if (task.isSuccessful()) {
+                                    Intent Intent = new Intent(Register.this, LoginActivity.class);
                                     startActivity(Intent);
 
                                 }
 
+
+//                                Intent Intent=new Intent(Register.this, LoginActivity.class);
+//                                startActivity(Intent);
+//
 
                              }else{
                                 Toast.makeText(Register.this, "registergagal" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

@@ -29,19 +29,93 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/text0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Syarat Dan Ketentuan"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="100dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="167dp"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="185dp"
-            android:layout_marginBottom="589dp"
-            android:text="KOSONG" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.Menyediakan informasi yang akurat tentang tanggal, waktu, dan durasi penyewaan. "
+            android:layout_below="@id/text0"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.Pembayaran harus dilakukan sebelumnya dan jumlahnya sudah ditentukan. "
+            android:textSize="16dp"
+            android:layout_below="@id/text1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Metode pembayaran yang diterima dan instruksi pembayaran harus jelas. "
+            android:textSize="16dp"
+            android:layout_below="@id/text2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Mematuhi aturan yang berlaku untuk penggunaan mobil, seperti larangan merokok atau membawa hewan peliharaan."
+            android:textSize="16dp"
+            android:layout_below="@id/text3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Mematuhi batasan geografis dan rute perjalanan yang telah ditentukan. "
+            android:textSize="16dp"
+            android:layout_below="@id/text4"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/text6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. Memahami prosedur dan ketentuan pengembalian mobil setelah selesai perjalanan. "
+            android:textSize="16dp"
+            android:layout_below="@id/text5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/text7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Pastikan untuk membaca dengan cermat semua syarat dan ketentuan yang disediakan oleh perusahaan penyewaan mobil sebelum menyelesaikan pemesanan. Jika ada pertanyaan atau ketidak jelasan, sebaiknya menghubungi admin untuk klarifikasi lebih lanjut. "
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_below="@id/text6"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

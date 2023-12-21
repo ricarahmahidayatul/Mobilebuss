@@ -117,16 +117,16 @@ public class AkunFragment extends Fragment {
         empat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
-//                startActivity(Intent);
+                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+                startActivity(Intent);
 
             }
         });
         lima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
-//                startActivity(Intent);
+                Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+                startActivity(Intent);
             }
         });
          enam.setOnClickListener(new View.OnClickListener() {
@@ -174,8 +174,8 @@ public class AkunFragment extends Fragment {
          papat.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-//                     Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
-//                     startActivity(Intent);
+                     Intent Intent = new Intent(getContext(), syaratketentuanActivity.class);
+                     startActivity(Intent);
              }
          });
          logout.setOnClickListener(new View.OnClickListener() {
